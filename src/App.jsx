@@ -36,7 +36,6 @@ function App() {
               <option value="ru">Русский</option>
             </select>
           </div>
-          <BurgerMenu />
         </div>
       </nav>
 
@@ -48,7 +47,11 @@ function App() {
         </div>
         <Sidebar category={category} setCategory={setCategory} places={places} />
       </main>
+      
+      
 
+      {/* Вот сюда перенеси BurgerMenu */}
+      <BurgerMenu />
       <Footer />
     </div>
   );

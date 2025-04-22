@@ -9,9 +9,8 @@ body {
   flex-direction: column;
   min-height: 100vh; /* Это гарантирует, что футер всегда будет внизу */
 }
-
 /* Навигационная панель */
-nav {
+.navbar{
   background-color: #0066cc;
   padding: 1rem;
   display: flex;
@@ -20,7 +19,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 3000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -80,7 +79,8 @@ nav a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  z-index: 2500;
+  z-index: 3000; /* на всякий случай */
+  transition: transform 0.3s ease-in-out; /* Добавим плавность перехода */
 }
 
 .ham-menu span {
@@ -88,21 +88,22 @@ nav a {
   width: 100%;
   background-color: white;
   border-radius: 25px;
-  transition: .3s ease;
+  transform-origin: center;
+  transition: all 0.3s ease; /* Плавный переход для всех свойств */
 }
 
 .ham-menu.active span:nth-child(1) {
-  transform: translateY(5px) rotate(45deg);
+  transform: translateY(17px) rotate(45deg); /* Верхняя линия превращается в верхнюю часть крестика */
 }
 
 .ham-menu.active span:nth-child(2) {
-  opacity: 0;
+  opacity: 0; /* Средняя линия исчезает */
+  transform: scale(0); /* Делает среднюю линию невидимой */
 }
 
 .ham-menu.active span:nth-child(3) {
-  transform: translateY(-5px) rotate(-45deg);
+  transform: translateY(-16px) rotate(-45deg); /* Нижняя линия становится второй половиной крестика */
 }
-
 /* Боковое меню */
 .off-screen-menu {
   background-color: #0077cc;
@@ -117,13 +118,18 @@ nav a {
   align-items: center;
   text-align: center;
   font-size: 2rem;
-  transition: .3s ease;
+  transition: right 0.3s ease, opacity 0.3s ease; /* добавим плавность появления */
+  opacity: 0; /* изначально невидимо */
+  pointer-events: none; /* чтобы нельзя было кликнуть вне экрана */
   z-index: 2600;
 }
 
 .off-screen-menu.active {
   right: 0;
+  opacity: 1;
+  pointer-events: auto; /* снова кликабельно */
 }
+
 
 .off-screen-menu ul {
   padding: 0;
@@ -181,8 +187,7 @@ footer {
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  margin-top: auto;
-  z-index: 2700;
+  margin-top: auto; /* Это заставит футер всегда быть внизу */
 }
 
 /* Основной контент */
@@ -202,29 +207,21 @@ main p {
   margin: 20px auto;
 }
 
-
-
-#content {
+/* #content {
   display: flex;
-  height: calc(100vh - 160px); /* минус навбар и заголовок */
-  margin-top: 80px;
-}
+  height: 100vh; /* минус навбар и заголовок */
 
 #map-container {
   flex: 1;
-  height: 100%;
+  width: 50%;
+  height: 50%;
 }
 
-#map {
-  width: 100%;
-  height: 100%;
-
-}
 
 #category-container {
-  width: 350px;
+  width: 500px;
   height: 100%;
-  margin-left: 20px;
+  margin-left: 30px;
   overflow-y: auto;
 }
 
@@ -244,7 +241,7 @@ main p {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 20px;
-  background-color: #f9f9f9;
+  background-color: #e4e4e4;
 }
 
 /* Список мест */
@@ -269,4 +266,8 @@ main p {
 /* Общие стили для всех элементов */
 * {
   box-sizing: border-box;
+}
+#map {          /* Ширина 100% от родительского элемента */
+  height: 60vh;        /* Высота 100% от высоты экрана */
+   /* Задаём относительно родителя, чтобы можно было настроить другие элементы */
 }

@@ -5,6 +5,7 @@ const BurgerMenu = () => {
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
+  // Закрытие при клике вне меню
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -16,8 +17,8 @@ const BurgerMenu = () => {
       }
     };
 
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -34,7 +35,10 @@ const BurgerMenu = () => {
         <span></span>
         <span></span>
       </div>
-      <div className={`off-screen-menu ${active ? "active" : ""}`} ref={menuRef}>
+      <div
+        className={`off-screen-menu ${active ? "active" : ""}`}
+        ref={menuRef}
+      >
         <span className="close-menu" onClick={() => setActive(false)}>X</span>
         <ul>
           <li><a href="/">Koti</a></li>

@@ -58,7 +58,7 @@ const MapComponent = ({ category, setPlaces, selectedPlace }) => {
       .catch((err) => console.error("Error fetching places:", err));
   }, [category, selectedPlace]); // Эффект срабатывает при изменении категории или выбранного места
 
-  return <div id="map" ref={mapRef} style={{ width: "100%", height: "100vh" }} />;
+  return <div id="map" ref={mapRef}  />;
 };
 
 export default MapComponent;
