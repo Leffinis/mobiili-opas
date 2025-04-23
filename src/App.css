@@ -271,3 +271,23 @@ main p {
   height: 60vh;   
   width: 65vw;     /* Высота 100% от высоты экрана */        /* Ширина 100% от родительского элемента */
 }
+/* Стиль для страницы Tietoa, чтобы она занимала всю ширину */
+.tietoa-page {
+  width: 100%;
+  margin: 0 auto; /* Центрирует контент */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.tietoa-page h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #0066cc;
+}
+
+.tietoa-page p {
+  text-align: justify;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
