@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import MapComponent from "../components/MapComponent";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
@@ -9,7 +9,6 @@ import { LanguageContext } from "../components/LanguageContext";
 import "leaflet/dist/leaflet.css";
 import "../App.css";
 
-// Импортируем страницы
 import Tietoa from "/src/pages/Tietoa.jsx";
 
 function App() {
@@ -17,6 +16,7 @@ function App() {
   const [places, setPlaces] = useState([]);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const { lang, setLang, t } = useContext(LanguageContext);
+  const location = useLocation(); // 👈 здесь
 
   const handleLanguageChange = (event) => {
     setLang(event.target.value);
@@ -42,7 +42,8 @@ function App() {
         </div>
       </nav>
 
-      <Header />
+      {/* Показываем Header только если не на странице /tietoa */}
+      {location.pathname !== "/tietoa" && <Header />}
 
       <main id="content">
         <Routes>
