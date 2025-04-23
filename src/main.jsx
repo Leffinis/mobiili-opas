@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "/src/pages/App.jsx";
-import { LanguageProvider } from "./components/LanguageContext"; // Импортируем LanguageProvider
-import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import { LanguageProvider } from "./components/LanguageContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <LanguageProvider> {/* Оборачиваем App в LanguageProvider */}
-      <App />
-    </LanguageProvider>
+    <BrowserRouter>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

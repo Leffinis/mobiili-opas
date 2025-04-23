@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Routes, Route } from "react-router-dom";
 import MapComponent from "../components/MapComponent";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
@@ -8,10 +9,13 @@ import { LanguageContext } from "../components/LanguageContext";
 import "leaflet/dist/leaflet.css";
 import "../App.css";
 
+// Импортируем страницы
+import Tietoa from "/src/pages/Tietoa.jsx";
+
 function App() {
   const [category, setCategory] = useState("sightseeing");
   const [places, setPlaces] = useState([]);
-  const [selectedPlace, setSelectedPlace] = useState(null); // ✅ добавлено
+  const [selectedPlace, setSelectedPlace] = useState(null);
   const { lang, setLang, t } = useContext(LanguageContext);
 
   const handleLanguageChange = (event) => {
@@ -41,19 +45,29 @@ function App() {
       <Header />
 
       <main id="content">
-        <div id="map-container">
-          <MapComponent
-            category={category}
-            setPlaces={setPlaces}
-            selectedPlace={selectedPlace} // ✅ передаём выбранное место
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div id="map-container">
+                  <MapComponent
+                    category={category}
+                    setPlaces={setPlaces}
+                    selectedPlace={selectedPlace}
+                  />
+                </div>
+                <Sidebar
+                  category={category}
+                  setCategory={setCategory}
+                  places={places}
+                  setSelectedPlace={setSelectedPlace}
+                />
+              </>
+            }
           />
-        </div>
-        <Sidebar
-          category={category}
-          setCategory={setCategory}
-          places={places}
-          setSelectedPlace={setSelectedPlace} // ✅ передаём функцию выбора места
-        />
+          <Route path="/tietoa" element={<Tietoa />} />
+        </Routes>
       </main>
 
       <BurgerMenu />

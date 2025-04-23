@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom"; // Импортируем Link
+import { Link } from "react-router-dom"; // <--- ВАЖНО: импорт Link
 
 const BurgerMenu = () => {
   const [active, setActive] = useState(false);
@@ -21,9 +21,6 @@ const BurgerMenu = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Обработчик закрытия меню
-  const closeMenu = () => setActive(false);
-
   return (
     <>
       <div
@@ -38,15 +35,18 @@ const BurgerMenu = () => {
         <span></span>
         <span></span>
       </div>
-      <div className={`off-screen-menu ${active ? "active" : ""}`} ref={menuRef}>
-        <span className="close-menu" onClick={closeMenu}>X</span>
+      <div
+        className={`off-screen-menu ${active ? "active" : ""}`}
+        ref={menuRef}
+      >
+        <span className="close-menu" onClick={() => setActive(false)}>X</span>
         <ul>
-          <li><Link to="/" onClick={closeMenu}>Koti</Link></li>
-          <li><a href="/html/auth/login.html">Kirjaudu</a></li> {/* Можно оставить как есть, если это внешний HTML */}
-          <li><Link to="/tietoa" onClick={closeMenu}>Tietoa</Link></li>
-          <li><Link to="/yhteystiedot" onClick={closeMenu}>Yhteystiedot</Link></li>
-          <li><Link to="/yrityksille" onClick={closeMenu}>Yrityksille</Link></li>
-          <li><Link to="/yhteistyokumppanit" onClick={closeMenu}>Yhteistyökumppanit</Link></li>
+          <li><Link to="/" onClick={() => setActive(false)}>Koti</Link></li>
+          <li><Link to="/kirjaudu" onClick={() => setActive(false)}>Kirjaudu</Link></li>
+          <li><Link to="/tietoa" onClick={() => setActive(false)}>Tietoa</Link></li>
+          <li><Link to="/yhteystiedot" onClick={() => setActive(false)}>Yhteystiedot</Link></li>
+          <li><Link to="/yrityksille" onClick={() => setActive(false)}>Yrityksille</Link></li>
+          <li><Link to="/yhteistyokumppanit" onClick={() => setActive(false)}>Yhteistyökumppanit</Link></li>
         </ul>
       </div>
     </>
