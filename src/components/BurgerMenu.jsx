@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom"; // Импортируем Link
 
 const BurgerMenu = () => {
   const [active, setActive] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
-  // Закрытие при клике вне меню
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -21,6 +21,9 @@ const BurgerMenu = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Обработчик закрытия меню
+  const closeMenu = () => setActive(false);
+
   return (
     <>
       <div
@@ -35,18 +38,15 @@ const BurgerMenu = () => {
         <span></span>
         <span></span>
       </div>
-      <div
-        className={`off-screen-menu ${active ? "active" : ""}`}
-        ref={menuRef}
-      >
-        <span className="close-menu" onClick={() => setActive(false)}>X</span>
+      <div className={`off-screen-menu ${active ? "active" : ""}`} ref={menuRef}>
+        <span className="close-menu" onClick={closeMenu}>X</span>
         <ul>
-          <li><a href="/">Koti</a></li>
-          <li><a href="/html/auth/login.html">Kirjaudu</a></li>
-          <li><a href="/html/about/tietoa.html">Tietoa</a></li>
-          <li><a href="/html/about/yhteystiedot.html">Yhteystiedot</a></li>
-          <li><a href="/html/about/yrityksille.html">Yrityksille</a></li>
-          <li><a href="/html/about/yhteistyokumppanit.html">Yhteistyökumppanit</a></li>
+          <li><Link to="/" onClick={closeMenu}>Koti</Link></li>
+          <li><a href="/html/auth/login.html">Kirjaudu</a></li> {/* Можно оставить как есть, если это внешний HTML */}
+          <li><Link to="/tietoa" onClick={closeMenu}>Tietoa</Link></li>
+          <li><Link to="/yhteystiedot" onClick={closeMenu}>Yhteystiedot</Link></li>
+          <li><Link to="/yrityksille" onClick={closeMenu}>Yrityksille</Link></li>
+          <li><Link to="/yhteistyokumppanit" onClick={closeMenu}>Yhteistyökumppanit</Link></li>
         </ul>
       </div>
     </>

@@ -1,22 +1,21 @@
 import React, { useState, useContext } from "react";
-import MapComponent from "./components/MapComponent";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import BurgerMenu from "./components/BurgerMenu";
-import { LanguageContext } from "./components/LanguageContext"; // Используем LanguageContext
+import MapComponent from "../components/MapComponent";
+import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import BurgerMenu from "../components/BurgerMenu";
+import { LanguageContext } from "../components/LanguageContext";
 import "leaflet/dist/leaflet.css";
-
-import "./App.css";
+import "../App.css";
 
 function App() {
   const [category, setCategory] = useState("sightseeing");
   const [places, setPlaces] = useState([]);
-  const { lang, setLang, t } = useContext(LanguageContext); // Получаем язык и функцию для его изменения из контекста
+  const [selectedPlace, setSelectedPlace] = useState(null); // ✅ добавлено
+  const { lang, setLang, t } = useContext(LanguageContext);
 
-  // Функция для обработки изменения языка
   const handleLanguageChange = (event) => {
-    setLang(event.target.value); // Обновляем язык в контексте
+    setLang(event.target.value);
   };
 
   return (
@@ -43,14 +42,20 @@ function App() {
 
       <main id="content">
         <div id="map-container">
-          <MapComponent category={category} setPlaces={setPlaces} />
+          <MapComponent
+            category={category}
+            setPlaces={setPlaces}
+            selectedPlace={selectedPlace} // ✅ передаём выбранное место
+          />
         </div>
-        <Sidebar category={category} setCategory={setCategory} places={places} />
+        <Sidebar
+          category={category}
+          setCategory={setCategory}
+          places={places}
+          setSelectedPlace={setSelectedPlace} // ✅ передаём функцию выбора места
+        />
       </main>
-      
-      
 
-      {/* Вот сюда перенеси BurgerMenu */}
       <BurgerMenu />
       <Footer />
     </div>

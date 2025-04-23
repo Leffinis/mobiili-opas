@@ -50,8 +50,9 @@ const MapComponent = ({ category, setPlaces, selectedPlace }) => {
           if (placeMarker) {
             mapInstance.current.setView(
               [placeMarker.getLatLng().lat, placeMarker.getLatLng().lng],
-              15 // Увеличиваем зум при переходе к месту
+              15
             );
+            placeMarker.openPopup(); // ✅ открываем popup
           }
         }
       })

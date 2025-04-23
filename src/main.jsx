@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import App from "/src/pages/App.jsx";
 import { LanguageProvider } from "./components/LanguageContext"; // Импортируем LanguageProvider
 import "./App.css";
 

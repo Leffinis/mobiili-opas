@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { LanguageContext } from "./LanguageContext";
 
-const Sidebar = ({ category, setCategory, places }) => {
+const Sidebar = ({ category, setCategory, places, setSelectedPlace }) => {
   const { t } = useContext(LanguageContext);
 
   return (
@@ -19,7 +19,12 @@ const Sidebar = ({ category, setCategory, places }) => {
       </select>
       <div id="places-list">
         {places.map((place, idx) => (
-          <div key={idx} className="place-item">
+          <div
+            key={idx}
+            className="place-item"
+            onClick={() => setSelectedPlace(place)} // 👈 устанавливаем выбранное место
+            style={{ cursor: "pointer" }} // 👈 визуально понятно, что кликабельно
+          >
             {place.name}
           </div>
         ))}
