@@ -44,11 +44,11 @@ const BurgerMenu = () => {
         <span className="close-menu" onClick={() => setActive(false)}>X</span>
         <ul>
           <li><Link to="/" onClick={() => setActive(false)}>{t.koti}</Link></li>
-          <li><Link to="/kirjaudu" onClick={() => setActive(false)}>Kirjaudu</Link></li>
-          <li><Link to="/tietoa" onClick={() => setActive(false)}>Tietoa</Link></li>
-          <li><Link to="/yhteystiedot" onClick={() => setActive(false)}>Yhteystiedot</Link></li>
-          <li><Link to="/yrityksille" onClick={() => setActive(false)}>Yrityksille</Link></li>
-          <li><Link to="/yhteistyokumppanit" onClick={() => setActive(false)}>Yhteistyökumppanit</Link></li>
+          <li><Link to="/kirjaudu" onClick={() => setActive(false)}>{t.kirjaudu}</Link></li>
+          <li><Link to="/tietoa" onClick={() => setActive(false)}>{t.tietoa}</Link></li>
+          <li><Link to="/yhteystiedot" onClick={() => setActive(false)}>{t.yhteystiedot}</Link></li>
+          <li><Link to="/yrityksille" onClick={() => setActive(false)}>{t.yrityksille}</Link></li>
+          <li><Link to="/yhteistyokumppanit" onClick={() => setActive(false)}>{t.yhteistyökumppanit}</Link></li>
         </ul>
       </div>
     </>

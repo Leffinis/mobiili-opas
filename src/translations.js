@@ -6,7 +6,12 @@ export const translations = {
       sightseeing: "Nähtävyydet",
       restaurants: "Ravintolat",
       parks: "Puistot",
-      koti: "Koti"
+      koti: "Koti",
+      kirjaudu: "Kirjaudu sisään",
+      tietoa: "Tietoa meistä",
+      yhteystiedot: "Yhteystiedot",
+      yrityksille: "Yrityksille",
+      yhteistyökumppanit: "Yhteistyökumppanit",
     },
     en: {
       welcome: "Welcome to Helsinki!",
@@ -15,7 +20,12 @@ export const translations = {
       sightseeing: "Sightseeing",
       restaurants: "Restaurants",
       parks: "Parks",
-      koti: "Home"
+      koti: "Home",
+      kirjaudu: "Log in",
+      tietoa: "About us",
+      yhteystiedot: "Contact us",
+      yrityksille: "For businesses",
+      yhteistyökumppanit: "Partners",
     },
     sv: {
       welcome: "Välkommen till Helsingfors!",
@@ -24,7 +34,12 @@ export const translations = {
       sightseeing: "Sevärdheter",
       restaurants: "Restauranger",
       parks: "Parker",
-      koti: "Hem"
+      koti: "Hem",
+      kirjaudu: "Logga in",
+      tietoa: "Om oss",
+      yhteystiedot: "Kontakta oss",
+      yrityksille: "För företag",
+      yhteistyökumppanit: "Partners",
     },
     uk: {
       welcome: "Ласкаво просимо до Гельсінкі!",
@@ -33,7 +48,12 @@ export const translations = {
       sightseeing: "Пам’ятки",
       restaurants: "Ресторани",
       parks: "Парки",
-      koti: "Дім"
+      koti: "Дім",
+      kirjaudu: "Увійти",
+      tietoa: "Про нас",
+      yhteystiedot: "Контакти",
+      yrityksille: "Для бізнесу",
+      yhteistyökumppanit: "Партнери",
     },
     ru: {
       welcome: "Добро пожаловать в Хельсинки!",
@@ -42,7 +62,12 @@ export const translations = {
       sightseeing: "Достопримечательности",
       restaurants: "Рестораны",
       parks: "Парки",
-      koti: "Дом"
+      koti: "Дом",
+      kirjaudu: "Войти",
+      tietoa: "О нас",
+      yhteystiedot: "Контакты",
+      yrityksille: "Для бизнеса",
+      yhteistyökumppanit: "Партнеры",
     }
   };
   
