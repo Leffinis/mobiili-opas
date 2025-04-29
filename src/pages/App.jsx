@@ -13,6 +13,7 @@ import "../App.css";
 import Tietoa from "/src/pages/Tietoa.jsx";
 import Yhteistyokumppanit from "/src/pages/Yhteistyokumppanit.jsx";
 import Yhteystiedot from "/src/pages/Yhteystiedot.jsx";
+import Yrityksille from "/src/pages/Yrityksille.jsx";
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
       </nav>
 
       {/* Показываем Header только если не на странице /tietoa */}
-      {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot"].includes(location.pathname) && <Header />}
+      {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille"].includes(location.pathname) && <Header />}
 
 
       <main id="content">
@@ -75,6 +76,7 @@ function App() {
           <Route path="/tietoa" element={<Tietoa />} />
           <Route path="/yhteistyokumppanit" element={<Yhteistyokumppanit />} />
           <Route path="/yhteystiedot" element={<Yhteystiedot />} />
+          <Route path="/yrityksille" element={<Yrityksille />} />
         </Routes>
       </main>
 
