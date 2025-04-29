@@ -10,7 +10,7 @@ import "leaflet/dist/leaflet.css";
 import "../App.css";
 
 import Tietoa from "/src/pages/Tietoa.jsx";
-
+import Yhteistyokumppanit from "/src/pages/Yhteistyokumppanit.jsx";
 function App() {
   const [category, setCategory] = useState("sightseeing");
   const [places, setPlaces] = useState([]);
@@ -43,7 +43,8 @@ function App() {
       </nav>
 
       {/* Показываем Header только если не на странице /tietoa */}
-      {location.pathname !== "/tietoa" && <Header />}
+      {!["/tietoa", "/yhteistyokumppanit"].includes(location.pathname) && <Header />}
+
 
       <main id="content">
         <Routes>
@@ -68,6 +69,7 @@ function App() {
             }
           />
           <Route path="/tietoa" element={<Tietoa />} />
+          <Route path="/yhteistyokumppanit" element={<Yhteistyokumppanit />} />
         </Routes>
       </main>
 
