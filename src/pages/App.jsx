@@ -26,7 +26,7 @@ function App() {
     <div className="app-wrapper">
       <nav className="navbar">
         <a href="/" className="nav-logo">
-          <img src="/html/images/Flag_of_Helsinki.webp" alt="Helsingin vaakuna" />
+          <img src="/src/images/Flag_of_Helsinki.webp" alt="Helsingin vaakuna" />
           <span className="nav-title">Mobiili matkaopas</span>
         </a>
         <div className="nav-right">
