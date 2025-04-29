@@ -277,6 +277,7 @@ main p {
   margin: 0 auto; /* Центрирует контент */
   padding: 20px;
   box-sizing: border-box;
+  margin: 10%; /* Центрирует контент */
 }
 
 .tietoa-page h2 {
