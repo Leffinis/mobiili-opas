@@ -5,7 +5,8 @@ export const translations = {
       selectCategory: "Valitse kategoria",
       sightseeing: "Nähtävyydet",
       restaurants: "Ravintolat",
-      parks: "Puistot"
+      parks: "Puistot",
+      koti: "Koti"
     },
     en: {
       welcome: "Welcome to Helsinki!",
@@ -13,7 +14,8 @@ export const translations = {
       selectCategory: "Select a category",
       sightseeing: "Sightseeing",
       restaurants: "Restaurants",
-      parks: "Parks"
+      parks: "Parks",
+      koti: "Home"
     },
     sv: {
       welcome: "Välkommen till Helsingfors!",
@@ -21,7 +23,8 @@ export const translations = {
       selectCategory: "Välj kategori",
       sightseeing: "Sevärdheter",
       restaurants: "Restauranger",
-      parks: "Parker"
+      parks: "Parker",
+      koti: "Hem"
     },
     uk: {
       welcome: "Ласкаво просимо до Гельсінкі!",
@@ -29,7 +32,8 @@ export const translations = {
       selectCategory: "Оберіть категорію",
       sightseeing: "Пам’ятки",
       restaurants: "Ресторани",
-      parks: "Парки"
+      parks: "Парки",
+      koti: "Дім"
     },
     ru: {
       welcome: "Добро пожаловать в Хельсинки!",
@@ -37,7 +41,8 @@ export const translations = {
       selectCategory: "Выберите категорию",
       sightseeing: "Достопримечательности",
       restaurants: "Рестораны",
-      parks: "Парки"
+      parks: "Парки",
+      koti: "Дом"
     }
   };
   
