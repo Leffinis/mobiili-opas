@@ -19,17 +19,10 @@ const db = new sqlite3.Database(dbPath);
 app.get("/places/:category", (req, res) => {
   const category = req.params.category;
 
-  db.all(
-    "SELECT name, latitude, longitude FROM places WHERE category = ?",
-    [category],
-    (err, rows) => {
-      if (err) {
-        res.status(500).json({ error: err.message });
-        return;
-      }
-      res.json(rows);
-    }
-  );
+  db.all("SELECT * FROM places WHERE category = ?", [category], (err, rows) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(rows); // В rows должны быть description и image_url
+  });
 });
 
 app.listen(port, () => {

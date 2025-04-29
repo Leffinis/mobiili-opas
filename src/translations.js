@@ -5,7 +5,13 @@ export const translations = {
       selectCategory: "Valitse kategoria",
       sightseeing: "Nähtävyydet",
       restaurants: "Ravintolat",
-      parks: "Puistot"
+      parks: "Puistot",
+      koti: "Koti",
+      kirjaudu: "Kirjaudu sisään",
+      tietoa: "Tietoa meistä",
+      yhteystiedot: "Yhteystiedot",
+      yrityksille: "Yrityksille",
+      yhteistyökumppanit: "Yhteistyökumppanit",
     },
     en: {
       welcome: "Welcome to Helsinki!",
@@ -13,7 +19,13 @@ export const translations = {
       selectCategory: "Select a category",
       sightseeing: "Sightseeing",
       restaurants: "Restaurants",
-      parks: "Parks"
+      parks: "Parks",
+      koti: "Home",
+      kirjaudu: "Log in",
+      tietoa: "About us",
+      yhteystiedot: "Contact us",
+      yrityksille: "For businesses",
+      yhteistyökumppanit: "Partners",
     },
     sv: {
       welcome: "Välkommen till Helsingfors!",
@@ -21,7 +33,13 @@ export const translations = {
       selectCategory: "Välj kategori",
       sightseeing: "Sevärdheter",
       restaurants: "Restauranger",
-      parks: "Parker"
+      parks: "Parker",
+      koti: "Hem",
+      kirjaudu: "Logga in",
+      tietoa: "Om oss",
+      yhteystiedot: "Kontakta oss",
+      yrityksille: "För företag",
+      yhteistyökumppanit: "Partners",
     },
     uk: {
       welcome: "Ласкаво просимо до Гельсінкі!",
@@ -29,7 +47,13 @@ export const translations = {
       selectCategory: "Оберіть категорію",
       sightseeing: "Пам’ятки",
       restaurants: "Ресторани",
-      parks: "Парки"
+      parks: "Парки",
+      koti: "Дім",
+      kirjaudu: "Увійти",
+      tietoa: "Про нас",
+      yhteystiedot: "Контакти",
+      yrityksille: "Для бізнесу",
+      yhteistyökumppanit: "Партнери",
     },
     ru: {
       welcome: "Добро пожаловать в Хельсинки!",
@@ -37,7 +61,13 @@ export const translations = {
       selectCategory: "Выберите категорию",
       sightseeing: "Достопримечательности",
       restaurants: "Рестораны",
-      parks: "Парки"
+      parks: "Парки",
+      koti: "Дом",
+      kirjaudu: "Войти",
+      tietoa: "О нас",
+      yhteystiedot: "Контакты",
+      yrityksille: "Для бизнеса",
+      yhteistyökumppanit: "Партнеры",
     }
   };
   

@@ -116,7 +116,7 @@ nav a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: left;
   font-size: 2rem;
   transition: right 0.3s ease, opacity 0.3s ease; /* добавим плавность появления */
   opacity: 0; /* изначально невидимо */
@@ -137,6 +137,7 @@ nav a {
 
 .off-screen-menu ul li {
   margin: 20px 0;
+  padding-left: 20px;
 }
 
 .off-screen-menu ul li a {
@@ -147,10 +148,10 @@ nav a {
 }
 
 .off-screen-menu ul li a:hover {
-  color: #005f99;
-  background-color: white;
-  padding: 0px 0px;
-  border-radius: 3px;
+  color: #000000;
+  background-color: rgb(255, 255, 255);
+  padding: 3px 0px;
+  border-radius: 5px;
 }
 
 /* Кнопка закрытия меню */
@@ -277,6 +278,7 @@ main p {
   margin: 0 auto; /* Центрирует контент */
   padding: 20px;
   box-sizing: border-box;
+  margin: 10%; /* Центрирует контент */
 }
 
 .tietoa-page h2 {

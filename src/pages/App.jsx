@@ -9,7 +9,12 @@ import { LanguageContext } from "../components/LanguageContext";
 import "leaflet/dist/leaflet.css";
 import "../App.css";
 
+//PAGES
 import Tietoa from "/src/pages/Tietoa.jsx";
+import Yhteistyokumppanit from "/src/pages/Yhteistyokumppanit.jsx";
+import Yhteystiedot from "/src/pages/Yhteystiedot.jsx";
+import Yrityksille from "/src/pages/Yrityksille.jsx";
+
 
 function App() {
   const [category, setCategory] = useState("sightseeing");
@@ -26,7 +31,7 @@ function App() {
     <div className="app-wrapper">
       <nav className="navbar">
         <a href="/" className="nav-logo">
-          <img src="/html/images/Flag_of_Helsinki.webp" alt="Helsingin vaakuna" />
+          <img src="/src/images/Flag_of_Helsinki.webp" alt="Helsingin vaakuna" />
           <span className="nav-title">Mobiili matkaopas</span>
         </a>
         <div className="nav-right">
@@ -43,7 +48,8 @@ function App() {
       </nav>
 
       {/* Показываем Header только если не на странице /tietoa */}
-      {location.pathname !== "/tietoa" && <Header />}
+      {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille"].includes(location.pathname) && <Header />}
+
 
       <main id="content">
         <Routes>
@@ -68,6 +74,9 @@ function App() {
             }
           />
           <Route path="/tietoa" element={<Tietoa />} />
+          <Route path="/yhteistyokumppanit" element={<Yhteistyokumppanit />} />
+          <Route path="/yhteystiedot" element={<Yhteystiedot />} />
+          <Route path="/yrityksille" element={<Yrityksille />} />
         </Routes>
       </main>
 
