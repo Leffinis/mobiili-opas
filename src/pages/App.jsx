@@ -9,8 +9,12 @@ import { LanguageContext } from "../components/LanguageContext";
 import "leaflet/dist/leaflet.css";
 import "../App.css";
 
+//PAGES
 import Tietoa from "/src/pages/Tietoa.jsx";
 import Yhteistyokumppanit from "/src/pages/Yhteistyokumppanit.jsx";
+import Yhteystiedot from "/src/pages/Yhteystiedot.jsx";
+
+
 function App() {
   const [category, setCategory] = useState("sightseeing");
   const [places, setPlaces] = useState([]);
@@ -43,7 +47,7 @@ function App() {
       </nav>
 
       {/* Показываем Header только если не на странице /tietoa */}
-      {!["/tietoa", "/yhteistyokumppanit"].includes(location.pathname) && <Header />}
+      {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot"].includes(location.pathname) && <Header />}
 
 
       <main id="content">
@@ -70,6 +74,7 @@ function App() {
           />
           <Route path="/tietoa" element={<Tietoa />} />
           <Route path="/yhteistyokumppanit" element={<Yhteistyokumppanit />} />
+          <Route path="/yhteystiedot" element={<Yhteystiedot />} />
         </Routes>
       </main>
 
