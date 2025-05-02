@@ -201,7 +201,7 @@ main {
   display: flex;
   flex-direction: row;
   width: 100%;
-  flex:
+  flex: 1;
   
 }
 
