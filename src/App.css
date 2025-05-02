@@ -201,6 +201,8 @@ main {
   display: flex;
   flex-direction: row;
   width: 100%;
+  flex:
+  
 }
 
 main p {
@@ -217,13 +219,17 @@ main p {
   width: 100%;
   height: 100%;
 }
-
+#map {     
+       
+  height: 70vh;   
+  width: 100%;     
+}
 
 #category-container {
   width: 30vw;
   height: 100%;
-  margin-left: 30px;
   overflow-y: auto;
+  
 }
 
 
@@ -268,10 +274,6 @@ main p {
 * {
   box-sizing: border-box;
 }
-#map {          /* Ширина 100% от родительского элемента */
-  height: 60vh;   
-  width: 65vw;     /* Высота 100% от высоты экрана */        /* Ширина 100% от родительского элемента */
-}
 /* Стиль для страницы Tietoa, чтобы она занимала всю ширину */
 .tietoa-page {
   width: 100%;
@@ -293,3 +295,23 @@ main p {
   color: #333;
   line-height: 1.6;
 }
+/* place description */
+.place-description {
+  margin: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 33%;
+}
+.place-description img {
+  margin-bottom: 10px;
+  width: 100%;
+  object-fit: cover;
+}
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+

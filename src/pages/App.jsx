@@ -8,6 +8,8 @@ import BurgerMenu from "../components/BurgerMenu";
 import { LanguageContext } from "../components/LanguageContext";
 import "leaflet/dist/leaflet.css";
 import "../App.css";
+import PlaceDescription from "../components/PlaceDescription";
+
 
 //PAGES
 import Tietoa from "/src/pages/Tietoa.jsx";
@@ -21,7 +23,7 @@ function App() {
   const [places, setPlaces] = useState([]);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const { lang, setLang, t } = useContext(LanguageContext);
-  const location = useLocation(); // 👈 здесь
+  const location = useLocation();
 
   const handleLanguageChange = (event) => {
     setLang(event.target.value);
@@ -56,6 +58,7 @@ function App() {
           <Route
             path="/"
             element={
+              
               <>
                 <div id="map-container">
                   <MapComponent
@@ -64,6 +67,7 @@ function App() {
                     selectedPlace={selectedPlace}
                   />
                 </div>
+                <PlaceDescription place={selectedPlace} />
                 <Sidebar
                   category={category}
                   setCategory={setCategory}
