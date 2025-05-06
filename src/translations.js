@@ -1,12 +1,15 @@
 export const translations = {
     fi: {
+      //header
       welcome: "Tervetuloa Helsinkiin!",
       description: "Tämä mobiili matkaopas auttaa sinua löytämään kaupungin parhaat nähtävyydet, ravintolat ja aktiviteetit.",
+      //sidebar
       selectCategory: "Valitse kategoria",
       sightseeing: "Nähtävyydet",
       restaurants: "Ravintolat",
       parks: "Puistot",
       koti: "Koti",
+      //burger menu
       kirjaudu: "Kirjaudu sisään",
       tietoa: "Tietoa meistä",
       yhteystiedot: "Yhteystiedot",
@@ -35,15 +38,21 @@ export const translations = {
       yrityksille_6: "Tarjoamme mainospaikkoja ja yhteistyömahdollisuuksia, jotka auttavat teitä tavoittamaan uusia asiakkaita.",
       yrityksille_7: "Jos olette kiinnostuneita, ottakaa yhteyttä ja keskustellaan lisää yhteistyömahdollisuuksista!",
       yrityksille_8: "Ystävällisin terveisin: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
+      // yhteistyökumppanit
+      yhteistyokumppanit_1: "Yhteystyökumppanimme",
+      yhteistyokumppanit_2: "Tilaa yhteistyökumppaneiden mainoksille.",
   
     },
     en: {
+      //header
       welcome: "Welcome to Helsinki!",
       description: "This mobile travel guide helps you find the best attractions, restaurants, and activities in the city.",
+      //sidebar
       selectCategory: "Select a category",
       sightseeing: "Sightseeing",
       restaurants: "Restaurants",
       parks: "Parks",
+      //burger menu
       koti: "Home",
       kirjaudu: "Log in",
       tietoa: "About us",
@@ -73,14 +82,20 @@ export const translations = {
       yrityksille_6: "We offer advertising spaces and collaboration opportunities that help you reach new customers.",
       yrityksille_7: "If you are interested, please contact us to discuss collaboration opportunities!",
       yrityksille_8: "Best regards: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
+      // yhteistyökumppanit
+      yhteistyokumppanit_1: "Our partners",
+      yhteistyokumppanit_2: "Order ads for partners.",
     },
     sv: {
+      //header
       welcome: "Välkommen till Helsingfors!",
       description: "Denna mobila reseguide hjälper dig att hitta stadens bästa sevärdheter, restauranger och aktiviteter.",
+      //sidebar
       selectCategory: "Välj kategori",
       sightseeing: "Sevärdheter",
       restaurants: "Restauranger",
       parks: "Parker",
+      //burger menu
       koti: "Hem",
       kirjaudu: "Logga in",
       tietoa: "Om oss",
@@ -110,15 +125,22 @@ export const translations = {
       yrityksille_6: "Vi erbjuder annonsutrymmen och samarbeten som hjälper dig att nå nya kunder.",
       yrityksille_7: "Om du är intresserad, vänligen kontakta oss för att diskutera samarbetets möjligheter!",
       yrityksille_8: "Med vänliga hälsningar: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
+      // yhteistyökumppanit
+      yhteistyokumppanit_1: "Våra partners",
+      yhteistyokumppanit_2: "Beställ annonser för partners.",
+
 
     },
     uk: {
+      //header
       welcome: "Ласкаво просимо до Гельсінкі!",
       description: "Цей мобільний путівник допоможе вам знайти найкращі пам’ятки, ресторани та активності міста.",
+      //sidebar
       selectCategory: "Оберіть категорію",
       sightseeing: "Пам’ятки",
       restaurants: "Ресторани",
       parks: "Парки",
+      //burger menu
       koti: "Дім",
       kirjaudu: "Увійти",
       tietoa: "Про нас",
@@ -148,14 +170,20 @@ export const translations = {
       yrityksille_6: "Ми пропонуємо рекламні місця та можливості співпраці, які допоможуть вам досягти нових клієнтів.",
       yrityksille_7: "Якщо ви зацікавлені, зв’яжіться з нами, щоб обговорити можливості співпраці!",
       yrityksille_8: "З найкращими побажаннями: Аліаксеєм 'Leffinis' Міціушиним та Туомасом 'Kapa' Ніемі",
+      // yhteistyökumppanit
+      yhteistyokumppanit_1: "Наші партнери",
+      yhteistyokumppanit_2: "Замовити рекламу для партнерів.",
     },
     ru: {
+      //header
       welcome: "Добро пожаловать в Хельсинки!",
       description: "Этот мобильный путеводитель поможет вам найти лучшие достопримечательности, рестораны и развлечения города.",
+      //sidebar
       selectCategory: "Выберите категорию",
       sightseeing: "Достопримечательности",
       restaurants: "Рестораны",
       parks: "Парки",
+      //burger menu
       koti: "Дом",
       kirjaudu: "Войти",
       tietoa: "О нас",
@@ -185,6 +213,9 @@ export const translations = {
       yrityksille_6: "Мы предлагаем рекламные места и возможности сотрудничества, которые помогут вам привлечь новых клиентов.",
       yrityksille_7: "Если вы заинтересованы, свяжитесь с нами, чтобы обсудить возможности сотрудничества!",
       yrityksille_8: "С наилучшими пожеланиями: Алексей 'Leffinis' Митюшин и Туомас 'Kapa' Ниеми",
+      // yhteistyökumppanit
+      yhteistyokumppanit_1: "Наши партнеры",
+      yhteistyokumppanit_2: "Заказать рекламу для партнеров.",
     }
   };
   

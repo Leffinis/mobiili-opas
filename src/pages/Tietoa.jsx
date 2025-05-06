@@ -6,7 +6,7 @@ const Tietoa = () => {
   return (
 
     <div className="tietoa-page">
-        <h1>{t.Tietoa_meista}</h1>
+        <h2>{t.Tietoa_meista}</h2>
         
         <p>{t.tietoa_tervetuloa}</p>
         <p>{t.tietoa_kakskaveri}</p>
@@ -16,8 +16,6 @@ const Tietoa = () => {
         <p>{t.tietoa_6}</p>
         <p>{t.tietoa_7}</p>
         <p>{t.tietoa_8}</p>
-
-        
         </div>
   );
 };
