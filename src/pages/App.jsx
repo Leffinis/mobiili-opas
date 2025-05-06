@@ -49,7 +49,7 @@ function App() {
         </div>
       </nav>
 
-      {/* Показываем Header только если не на странице /tietoa */}
+      {/* Header toimi vain koti sivulla */}
       {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille"].includes(location.pathname) && <Header />}
 
 
