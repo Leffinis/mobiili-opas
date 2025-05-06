@@ -22,6 +22,11 @@ export const translations = {
       tietoa_6: "Olemme sitoutuneet tarjoamaan ajankohtaista ja tarkkaa tietoa, jotta voit nauttia vierailustasi Helsingissä.",
       tietoa_7: "Jos sinulla on kysymyksiä tai palautetta, älä epäröi ottaa meihin yhteyttä!",
       tietoa_8: "Voit myös seurata meitä sosiaalisessa mediassa saadaksesi viimeisimmät päivitykset ja tarjoukset.",
+      //yhteystiedot
+      yhteystiedot_1: "Yhteystietomme",
+      yhteystiedot_2: "Ota yhteyttä rohkeasti!",
+      yhteystiedot_3: "Mobiili matkaopas made by: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
+
     },
     en: {
       welcome: "Welcome to Helsinki!",
@@ -46,6 +51,10 @@ export const translations = {
       tietoa_6: "We are committed to providing up-to-date and accurate information so you can enjoy your visit to Helsinki.",
       tietoa_7: "If you have any questions or feedback, please don't hesitate to contact us!",
       tietoa_8: "You can also follow us on social media for the latest updates and offers.",
+      //yhteystiedot
+      yhteystiedot_1: "Our contact information",
+      yhteystiedot_2: "Feel free to reach out!",
+      yhteystiedot_3: "Mobiili matkaopas made by: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
     },
     sv: {
       welcome: "Välkommen till Helsingfors!",
@@ -70,6 +79,10 @@ export const translations = {
       tietoa_6: "Vi är engagerade i att erbjuda aktuell och korrekt information så att du kan njuta av ditt besök i Helsingfors.",
       tietoa_7: "Om du har några frågor eller feedback, tveka inte att kontakta oss!",
       tietoa_8: "Du kan också följa oss på sociala medier för de senaste uppdateringarna och erbjudandena.",
+      //yhteystiedot
+      yhteystiedot_1: "Vår kontaktinformation",
+      yhteystiedot_2: "Tveka inte att höra av dig!",
+      yhteystiedot_3: "Mobiili matkaopas gjord av: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
 
     },
     uk: {
@@ -95,6 +108,10 @@ export const translations = {
       tietoa_6: "Ми прагнемо надавати актуальну та точну інформацію, щоб ви могли насолоджуватися своїм візитом до Гельсінкі.",
       tietoa_7: "Якщо у вас є запитання або відгуки, не соромтеся зв’язатися з нами!",
       tietoa_8: "Ви також можете стежити за нами в соціальних мережах, щоб отримувати останні новини та пропозиції.",
+      //yhteystiedot
+      yhteystiedot_1: "Наша контактна інформація",
+      yhteystiedot_2: "Не соромтеся звертатися до нас!",
+      yhteystiedot_3: "Mobiili matkaopas створений: Аліаксеєм 'Leffinis' Міціушиним та Туомасом 'Kapa' Ніемі",
     },
     ru: {
       welcome: "Добро пожаловать в Хельсинки!",
@@ -119,6 +136,10 @@ export const translations = {
       tietoa_6: "Мы стремимся предоставлять актуальную и точную информацию, чтобы вы могли наслаждаться своим визитом в Хельсинки.",
       tietoa_7: "Если у вас есть вопросы или отзывы, не стесняйтесь обращаться к нам!",
       tietoa_8: "Вы также можете следить за нами в социальных сетях, чтобы получать последние обновления и предложения.",
+      //yhteystiedot
+      yhteystiedot_1: "Наша контактная информация",
+      yhteystiedot_2: "Не стесняйтесь обращаться к нам!",
+      yhteystiedot_3: "Mobiili matkaopas создан: Алексей 'Leffinis' Митюшин и Туомас 'Kapa' Ниеми",
     }
   };
   
