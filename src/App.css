@@ -7,9 +7,9 @@ body {
   color: #333333;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Это гарантирует, что футер всегда будет внизу */
+  min-height: 100vh; 
 }
-/* Навигационная панель */
+
 .navbar{
   background-color: #0066cc;
   padding: 1rem;
@@ -23,7 +23,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Логотип и название */
+/* logo ja nimen */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -44,13 +44,13 @@ body {
   font-weight: 600;
 }
 
-/* Ссылки в навигации */
+
 nav a {
   text-decoration: none;
   color: white;
 }
 
-/* Выбор языка */
+
 .language-selector {
   margin-left: auto;
   margin-right: 100px;
@@ -79,8 +79,8 @@ nav a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  z-index: 3000; /* на всякий случай */
-  transition: transform 0.3s ease-in-out; /* Добавим плавность перехода */
+  z-index: 3000; 
+  transition: transform 0.3s ease-in-out; 
 }
 
 .ham-menu span {
@@ -89,20 +89,20 @@ nav a {
   background-color: white;
   border-radius: 25px;
   transform-origin: center;
-  transition: all 0.3s ease; /* Плавный переход для всех свойств */
+  transition: all 0.3s ease; 
 }
 
 .ham-menu.active span:nth-child(1) {
-  transform: translateY(17px) rotate(45deg); /* Верхняя линия превращается в верхнюю часть крестика */
+  transform: translateY(17px) rotate(45deg); 
 }
 
 .ham-menu.active span:nth-child(2) {
-  opacity: 0; /* Средняя линия исчезает */
-  transform: scale(0); /* Делает среднюю линию невидимой */
+  opacity: 0; 
+  transform: scale(0); 
 }
 
 .ham-menu.active span:nth-child(3) {
-  transform: translateY(-16px) rotate(-45deg); /* Нижняя линия становится второй половиной крестика */
+  transform: translateY(-16px) rotate(-45deg); 
 }
 /* Боковое меню */
 .off-screen-menu {
@@ -118,16 +118,16 @@ nav a {
   align-items: center;
   text-align: left;
   font-size: 2rem;
-  transition: right 0.3s ease, opacity 0.3s ease; /* добавим плавность появления */
-  opacity: 0; /* изначально невидимо */
-  pointer-events: none; /* чтобы нельзя было кликнуть вне экрана */
+  transition: right 0.3s ease, opacity 0.3s ease; 
+  opacity: 0; 
+  pointer-events: none; 
   z-index: 2600;
 }
 
 .off-screen-menu.active {
   right: 0;
   opacity: 1;
-  pointer-events: auto; /* снова кликабельно */
+  pointer-events: auto; 
 }
 
 
@@ -154,7 +154,7 @@ nav a {
   border-radius: 5px;
 }
 
-/* Кнопка закрытия меню */
+
 .close-menu {
   font-size: 2rem;
   color: white;
@@ -164,7 +164,7 @@ nav a {
   cursor: pointer;
 }
 
-/* Заголовок */
+
 header {
   background-color: #e3f2fd;
   color: #0066cc;
@@ -179,7 +179,7 @@ header h1 {
   font-weight: 600;
 }
 
-/* Подвал */
+
 footer {
   background-color: #0066cc;
   color: white;
@@ -188,10 +188,10 @@ footer {
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  margin-top: auto; /* Это заставит футер всегда быть внизу */
+  margin-top: auto; 
 }
 
-/* Основной контент */
+
 main {
   flex-grow: 1;
   padding: 30px 15px;
@@ -233,14 +233,14 @@ main p {
 }
 
 
-/* Заголовок для категории */
+
 #category-container h3 {
   margin-bottom: 15px;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-/* Селектор категорий */
+
 #category-select {
   width: 100%;
   padding: 10px;
@@ -251,7 +251,7 @@ main p {
   background-color: #e4e4e4;
 }
 
-/* Список мест */
+
 #places-list {
   max-height: 50vh;
   overflow-y: auto;
@@ -270,17 +270,17 @@ main p {
   background-color: #d3d3d3;
 }
 
-/* Общие стили для всех элементов */
+
 * {
   box-sizing: border-box;
 }
-/* Стиль для страницы Tietoa, чтобы она занимала всю ширину */
+
 .tietoa-page {
   width: 100%;
-  margin: 0 auto; /* Центрирует контент */
+  margin: 0 auto; 
   padding: 20px;
   box-sizing: border-box;
-  margin: 10%; /* Центрирует контент */
+  margin: 10%; 
 }
 
 .tietoa-page h2 {
@@ -295,7 +295,7 @@ main p {
   color: #333;
   line-height: 1.6;
 }
-/* place description */
+
 .place-description {
   padding: 15px;
   background-color: #f9f9f9;

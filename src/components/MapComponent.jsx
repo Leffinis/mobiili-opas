@@ -41,7 +41,7 @@ const MapComponent = ({ category, setPlaces, selectedPlace, setSelectedPlace }) 
             .bindPopup(place.name);
         
           marker.on("click", () => {
-            setSelectedPlace(place); // устанавливаем выбранное место при клике на маркер
+            setSelectedPlace(place); // set the selected place when marker is clicked
           });
         
           markers.current.push(marker);
