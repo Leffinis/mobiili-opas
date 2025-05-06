@@ -7,42 +7,42 @@ const MapComponent = ({ category, setPlaces, selectedPlace }) => {
   const markers = useRef([]);
 
   useEffect(() => {
-    // Инициализация карты только один раз
+    
     if (!mapRef.current || mapInstance.current) return;
 
-    // Инициализируем карту
+    // initializing the map
     mapInstance.current = L.map(mapRef.current).setView([60.1699, 24.9384], 13);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors",
     }).addTo(mapInstance.current);
-  }, []); // Эффект выполняется только один раз
+  }, []); // only run once when the component mounts
 
   useEffect(() => {
     if (!mapInstance.current || !category) return;
 
-    // Запрос для получения мест по категории
+    // fetch to get places based on the selected category
     fetch(`http://localhost:3000/places/${category}`)
       .then((res) => res.json())
       .then((data) => {
-        // Удаляем старые маркеры перед добавлением новых
+        // remove old markers
         markers.current.forEach((marker) => {
           if (marker instanceof L.Marker) {
-            marker.remove(); // Убедитесь, что это маркер
+            marker.remove(); // remove
           }
         });
-        markers.current = []; // Очистить массив маркеров
+        markers.current = []; // clear the array
         setPlaces(data);
 
-        // Добавляем новые маркеры
+        // add new markers
         data.forEach((place) => {
           const marker = L.marker([place.latitude, place.longitude])
             .addTo(mapInstance.current)
             .bindPopup(place.name);
-          markers.current.push(marker); // Добавляем только маркеры
+          markers.current.push(marker); // add marker to the array
         });
 
-        // Если был выбран маркер, центрируем карту на его месте
+        // if a place is selected, center the map on it and open its popup
         if (selectedPlace) {
           const placeMarker = markers.current.find(
             (marker) => marker.getPopup().getContent() === selectedPlace.name
@@ -50,14 +50,14 @@ const MapComponent = ({ category, setPlaces, selectedPlace }) => {
           if (placeMarker) {
             mapInstance.current.setView(
               [placeMarker.getLatLng().lat, placeMarker.getLatLng().lng],
-              15
+              15 // zoom in on the selected place
             );
-            placeMarker.openPopup(); // ✅ открываем popup
+            placeMarker.openPopup(); // open the popup of the selected place
           }
         }
       })
       .catch((err) => console.error("Error fetching places:", err));
-  }, [category, selectedPlace]); // Эффект срабатывает при изменении категории или выбранного места
+  }, [category, selectedPlace]); // re-run when category or selectedPlace changes
 
   return <div id="map" ref={mapRef}  />;
 };

@@ -4,7 +4,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
-// нужно вручную определить __dirname
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -21,7 +21,7 @@ app.get("/places/:category", (req, res) => {
 
   db.all("SELECT * FROM places WHERE category = ?", [category], (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.json(rows); // В rows должны быть description и image_url
+    res.json(rows); 
   });
 });
 

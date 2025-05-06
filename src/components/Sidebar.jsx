@@ -22,8 +22,8 @@ const Sidebar = ({ category, setCategory, places, setSelectedPlace }) => {
           <div
             key={idx}
             className="place-item"
-            onClick={() => setSelectedPlace(place)} // 👈 устанавливаем выбранное место
-            style={{ cursor: "pointer" }} // 👈 визуально понятно, что кликабельно
+            onClick={() => setSelectedPlace(place)} 
+            style={{ cursor: "pointer" }}
           >
             {place.name}
           </div>

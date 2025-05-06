@@ -229,7 +229,7 @@ main p {
   width: 30vw;
   height: 100%;
   overflow-y: auto;
-  
+
 }
 
 
@@ -297,7 +297,6 @@ main p {
 }
 /* place description */
 .place-description {
-  margin: 20px;
   padding: 15px;
   background-color: #f9f9f9;
   border-radius: 12px;
@@ -313,5 +312,10 @@ main p {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+#content {
+  flex: 1;
+  display: flex;
+  gap: 20px;
 }
 
