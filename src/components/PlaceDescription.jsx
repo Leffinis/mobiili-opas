@@ -13,9 +13,9 @@ const PlaceDescription = ({ place }) => {
   return (
     <div className="place-description">
       <h2>{place.name}</h2>
-      {place.image_URL && (
+      {place.image_url && (
         <img
-          src={place.image_URL}
+          src={place.image_url}
           alt={place.name}
           style={{ width: "100%", maxWidth: "400px", borderRadius: "12px" }}
         />
