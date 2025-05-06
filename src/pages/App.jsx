@@ -65,6 +65,7 @@ function App() {
                     category={category}
                     setPlaces={setPlaces}
                     selectedPlace={selectedPlace}
+                    setSelectedPlace={setSelectedPlace}
                   />
                 </div>
                 <PlaceDescription place={selectedPlace} />

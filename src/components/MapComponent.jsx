@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import L from "leaflet";
 
-const MapComponent = ({ category, setPlaces, selectedPlace }) => {
+const MapComponent = ({ category, setPlaces, selectedPlace, setSelectedPlace }) => {
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
   const markers = useRef([]);
@@ -39,8 +39,14 @@ const MapComponent = ({ category, setPlaces, selectedPlace }) => {
           const marker = L.marker([place.latitude, place.longitude])
             .addTo(mapInstance.current)
             .bindPopup(place.name);
-          markers.current.push(marker); // add marker to the array
+        
+          marker.on("click", () => {
+            setSelectedPlace(place); // устанавливаем выбранное место при клике на маркер
+          });
+        
+          markers.current.push(marker);
         });
+        
 
         // if a place is selected, center the map on it and open its popup
         if (selectedPlace) {
