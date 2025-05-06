@@ -5,7 +5,7 @@ const Yhteystiedot = () => {
   const { t } = useContext(LanguageContext);
   return (
     <div className="tietoa-page">
-      <h1>{t.yhteystiedot_1}</h1>
+      <h2>{t.yhteystiedot_1}</h2>
       <h3>
           {t.yhteystiedot_2}
       </h3>

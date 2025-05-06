@@ -26,7 +26,16 @@ export const translations = {
       yhteystiedot_1: "Yhteystietomme",
       yhteystiedot_2: "Ota yhteyttä rohkeasti!",
       yhteystiedot_3: "Mobiili matkaopas made by: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
-
+      //yrityksille
+      yrityksille_1: "Yrityksille",
+      yrityksille_2: "Tahdotko lisätä yrityksesi näkyvyyttä sivuillamme?",
+      yrityksille_3: "Arvoisat paikalliset yrittäjät.",
+      yrityksille_4: "Oletteko kiinnostuneita yhteistyöstä kanssamme?",
+      yrityksille_5: "Meidän mobiili matkaopas tarjoaa erinomaisen mahdollisuuden lisätä yrityksenne näkyvyyttä ja houkutella asiakkaita.",
+      yrityksille_6: "Tarjoamme mainospaikkoja ja yhteistyömahdollisuuksia, jotka auttavat teitä tavoittamaan uusia asiakkaita.",
+      yrityksille_7: "Jos olette kiinnostuneita, ottakaa yhteyttä ja keskustellaan lisää yhteistyömahdollisuuksista!",
+      yrityksille_8: "Ystävällisin terveisin: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
+  
     },
     en: {
       welcome: "Welcome to Helsinki!",
@@ -55,6 +64,15 @@ export const translations = {
       yhteystiedot_1: "Our contact information",
       yhteystiedot_2: "Feel free to reach out!",
       yhteystiedot_3: "Mobiili matkaopas made by: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
+      //yrityksille
+      yrityksille_1: "For businesses",
+      yrityksille_2: "Do you want to increase your company's visibility on our site?",
+      yrityksille_3: "Dear local entrepreneurs.",
+      yrityksille_4: "Are you interested in collaborating with us?",
+      yrityksille_5: "Our mobile travel guide offers an excellent opportunity to increase your visibility and attract customers.",
+      yrityksille_6: "We offer advertising spaces and collaboration opportunities that help you reach new customers.",
+      yrityksille_7: "If you are interested, please contact us to discuss collaboration opportunities!",
+      yrityksille_8: "Best regards: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
     },
     sv: {
       welcome: "Välkommen till Helsingfors!",
@@ -83,6 +101,15 @@ export const translations = {
       yhteystiedot_1: "Vår kontaktinformation",
       yhteystiedot_2: "Tveka inte att höra av dig!",
       yhteystiedot_3: "Mobiili matkaopas gjord av: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
+      //yrityksille
+      yrityksille_1: "För företag",
+      yrityksille_2: "Vill du öka ditt företags synlighet på vår webbplats?",
+      yrityksille_3: "Kära lokala företagare.",
+      yrityksille_4: "Är du intresserad av att samarbeta med oss?",
+      yrityksille_5: "Vår mobila reseguide erbjuder en utmärkt möjlighet att öka din synlighet och locka kunder.",
+      yrityksille_6: "Vi erbjuder annonsutrymmen och samarbeten som hjälper dig att nå nya kunder.",
+      yrityksille_7: "Om du är intresserad, vänligen kontakta oss för att diskutera samarbetets möjligheter!",
+      yrityksille_8: "Med vänliga hälsningar: Aliaksei 'Leffinis' Mitsiushyn & Tuomas 'Kapa' Niemi",
 
     },
     uk: {
@@ -112,6 +139,15 @@ export const translations = {
       yhteystiedot_1: "Наша контактна інформація",
       yhteystiedot_2: "Не соромтеся звертатися до нас!",
       yhteystiedot_3: "Mobiili matkaopas створений: Аліаксеєм 'Leffinis' Міціушиним та Туомасом 'Kapa' Ніемі",
+      //yrityksille
+      yrityksille_1: "Для бізнесу",
+      yrityksille_2: "Бажаєте підвищити видимість вашої компанії на нашому сайті?",
+      yrityksille_3: "Шановні підприємці.",
+      yrityksille_4: "Вам цікаво співпрацювати з нами?",
+      yrityksille_5: "Наш мобільний путівник пропонує відмінну можливість підвищити вашу видимість і залучити клієнтів.",
+      yrityksille_6: "Ми пропонуємо рекламні місця та можливості співпраці, які допоможуть вам досягти нових клієнтів.",
+      yrityksille_7: "Якщо ви зацікавлені, зв’яжіться з нами, щоб обговорити можливості співпраці!",
+      yrityksille_8: "З найкращими побажаннями: Аліаксеєм 'Leffinis' Міціушиним та Туомасом 'Kapa' Ніемі",
     },
     ru: {
       welcome: "Добро пожаловать в Хельсинки!",
@@ -140,6 +176,15 @@ export const translations = {
       yhteystiedot_1: "Наша контактная информация",
       yhteystiedot_2: "Не стесняйтесь обращаться к нам!",
       yhteystiedot_3: "Mobiili matkaopas создан: Алексей 'Leffinis' Митюшин и Туомас 'Kapa' Ниеми",
+      //yrityksille
+      yrityksille_1: "Для бизнеса",
+      yrityksille_2: "Хотите повысить видимость вашей компании на нашем сайте?",
+      yrityksille_3: "Уважаемые предприниматели.",
+      yrityksille_4: "Вам интересно сотрудничество с нами?",
+      yrityksille_5: "Наш мобильный путеводитель предлагает отличную возможность повысить вашу видимость и привлечь клиентов.",
+      yrityksille_6: "Мы предлагаем рекламные места и возможности сотрудничества, которые помогут вам привлечь новых клиентов.",
+      yrityksille_7: "Если вы заинтересованы, свяжитесь с нами, чтобы обсудить возможности сотрудничества!",
+      yrityksille_8: "С наилучшими пожеланиями: Алексей 'Leffinis' Митюшин и Туомас 'Kapa' Ниеми",
     }
   };
   
