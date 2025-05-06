@@ -48,10 +48,11 @@ const MapComponent = ({ category, setPlaces, selectedPlace }) => {
             (marker) => marker.getPopup().getContent() === selectedPlace.name
           );
           if (placeMarker) {
-            mapInstance.current.setView(
+            // center map on the selected place, but it not works good then i commented it
+            /*mapInstance.current.setView(
               [placeMarker.getLatLng().lat, placeMarker.getLatLng().lng],
-              15 // zoom in on the selected place
-            );
+              10 // zoom in on the selected place
+            );*/
             placeMarker.openPopup(); // open the popup of the selected place
           }
         }
