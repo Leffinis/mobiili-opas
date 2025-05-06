@@ -16,7 +16,8 @@ const Yrityksille = () => {
         <p>{t.yrityksille_6}</p>
         <p>{t.yrityksille_7}</p>
         <h4>geobrosinternational@gmail.com</h4>
-        <p>{t.yrityksille_8}</p>
+        <p style={{ textAlign: 'center' }}>{t.yrityksille_8}</p>
+
     
 
     </div>

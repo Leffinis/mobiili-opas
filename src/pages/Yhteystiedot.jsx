@@ -14,7 +14,9 @@ const Yhteystiedot = () => {
         <a href="https://www.instagram.com/geobrosinternational/" target="_blank">
         <img src="/src/images/logo.png" alt="logo" width="80" height="80" />
         </a>
-        <p>{t.yhteystiedot_3}</p>
+        <p style={{ textAlign: 'center' }}>{t.yhteystiedot_3}</p>
+
+
 
     </div>
   );

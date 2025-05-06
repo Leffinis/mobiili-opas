@@ -277,10 +277,9 @@ main p {
 
 .tietoa-page {
   width: 100%;
-  margin: 0 auto; 
+  margin: auto; 
   padding: 20px;
   box-sizing: border-box;
-  margin: 10%; 
 }
 
 .tietoa-page h2 {
@@ -294,6 +293,7 @@ main p {
   font-size: 1.1rem;
   color: #333;
   line-height: 1.6;
+  text-align: left;
 }
 
 .place-description {
