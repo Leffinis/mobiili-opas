@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from "/src/components/LanguageContext";
 
 const Yrityksille = () => {
+  const { t } = useContext(LanguageContext);
   return (
     <div className="tietoa-page">
       <h2>Yrityksille</h2>

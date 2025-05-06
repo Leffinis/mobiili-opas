@@ -12,6 +12,8 @@ export const translations = {
       yhteystiedot: "Yhteystiedot",
       yrityksille: "Yrityksille",
       yhteistyökumppanit: "Yhteistyökumppanit",
+      //tietoa
+      Tietoa_meistä: "Tietoa meistä",
     },
     en: {
       welcome: "Welcome to Helsinki!",
@@ -26,6 +28,8 @@ export const translations = {
       yhteystiedot: "Contact us",
       yrityksille: "For businesses",
       yhteistyökumppanit: "Partners",
+      //tietoa
+      Tietoa_meistä: "About us",
     },
     sv: {
       welcome: "Välkommen till Helsingfors!",
@@ -40,6 +44,8 @@ export const translations = {
       yhteystiedot: "Kontakta oss",
       yrityksille: "För företag",
       yhteistyökumppanit: "Partners",
+      //tietoa
+      Tietoa_meistä: "Om oss",
     },
     uk: {
       welcome: "Ласкаво просимо до Гельсінкі!",
@@ -54,6 +60,8 @@ export const translations = {
       yhteystiedot: "Контакти",
       yrityksille: "Для бізнесу",
       yhteistyökumppanit: "Партнери",
+      //tietoa
+      Tietoa_meistä: "Про нас",
     },
     ru: {
       welcome: "Добро пожаловать в Хельсинки!",
@@ -68,6 +76,8 @@ export const translations = {
       yhteystiedot: "Контакты",
       yrityksille: "Для бизнеса",
       yhteistyökumppanit: "Партнеры",
+      //tietoa
+      Tietoa_meistä: "О нас",
     }
   };
   
