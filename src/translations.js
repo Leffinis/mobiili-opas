@@ -13,7 +13,15 @@ export const translations = {
       yrityksille: "Yrityksille",
       yhteistyökumppanit: "Yhteistyökumppanit",
       //tietoa
-      Tietoa_meistä: "Tietoa meistä",
+      Tietoa_meista: "Tietoa meistä",
+      tietoa_tervetuloa: "Tervetuloa Helsingin mobili matkaoppaaseen!",
+      tietoa_kakskaveri: "Olemme kaksi kaverusta jotka halusivat luoda helpon ja kätevän tavan löytää kaupungin parhaat paikat.",
+      tietoa_3: "Meidän tavoitteemme on tehdä matkustamisesta Helsingissä mahdollisimman vaivatonta ja hauskaa.",
+      tietoa_4: "Olemme keränneet yhteen kaikki tärkeimmät tiedot, jotta voit keskittyä nauttimaan matkasta.",
+      tietoa_5: "Tämä mobiili matkaopas on suunniteltu auttamaan sinua löytämään Helsingin parhaat nähtävyydet, ravintolat ja aktiviteetit.",
+      tietoa_6: "Olemme sitoutuneet tarjoamaan ajankohtaista ja tarkkaa tietoa, jotta voit nauttia vierailustasi Helsingissä.",
+      tietoa_7: "Jos sinulla on kysymyksiä tai palautetta, älä epäröi ottaa meihin yhteyttä!",
+      tietoa_8: "Voit myös seurata meitä sosiaalisessa mediassa saadaksesi viimeisimmät päivitykset ja tarjoukset.",
     },
     en: {
       welcome: "Welcome to Helsinki!",
@@ -29,7 +37,15 @@ export const translations = {
       yrityksille: "For businesses",
       yhteistyökumppanit: "Partners",
       //tietoa
-      Tietoa_meistä: "About us",
+      Tietoa_meista: "About us",
+      tietoa_tervetuloa: "Welcome to Helsinki's mobile travel guide!",
+      tietoa_kakskaveri: "We are two friends who wanted to create an easy and convenient way to find the best places in the city.",
+      tietoa_3: "Our goal is to make traveling in Helsinki as effortless and enjoyable as possible.",
+      tietoa_4: "We have gathered all the essential information so you can focus on enjoying your trip.",
+      tietoa_5: "This mobile travel guide is designed to help you find the best attractions, restaurants, and activities in Helsinki.",
+      tietoa_6: "We are committed to providing up-to-date and accurate information so you can enjoy your visit to Helsinki.",
+      tietoa_7: "If you have any questions or feedback, please don't hesitate to contact us!",
+      tietoa_8: "You can also follow us on social media for the latest updates and offers.",
     },
     sv: {
       welcome: "Välkommen till Helsingfors!",
@@ -45,7 +61,16 @@ export const translations = {
       yrityksille: "För företag",
       yhteistyökumppanit: "Partners",
       //tietoa
-      Tietoa_meistä: "Om oss",
+      Tietoa_meista: "Om oss",
+      tietoa_tervetuloa: "Välkommen till Helsingfors mobila reseguide!",
+      tietoa_kakskaveri: "Vi är två vänner som ville skapa ett enkelt och bekvämt sätt att hitta stadens bästa platser.",
+      tietoa_3: "Vårt mål är att göra resandet i Helsingfors så enkelt och trevligt som möjligt.",
+      tietoa_4: "Vi har samlat all viktig information så att du kan fokusera på att njuta av din resa.",
+      tietoa_5: "Denna mobila reseguide är utformad för att hjälpa dig att hitta de bästa sevärdheterna, restaurangerna och aktiviteterna i Helsingfors.",
+      tietoa_6: "Vi är engagerade i att erbjuda aktuell och korrekt information så att du kan njuta av ditt besök i Helsingfors.",
+      tietoa_7: "Om du har några frågor eller feedback, tveka inte att kontakta oss!",
+      tietoa_8: "Du kan också följa oss på sociala medier för de senaste uppdateringarna och erbjudandena.",
+
     },
     uk: {
       welcome: "Ласкаво просимо до Гельсінкі!",
@@ -61,7 +86,15 @@ export const translations = {
       yrityksille: "Для бізнесу",
       yhteistyökumppanit: "Партнери",
       //tietoa
-      Tietoa_meistä: "Про нас",
+      Tietoa_meista: "Про нас",
+      tietoa_tervetuloa: "Ласкаво просимо до мобільного путівника Гельсінкі!",
+      tietoa_kakskaveri: "Ми двоє друзів, які хотіли створити простий і зручний спосіб знайти найкращі місця в місті.",
+      tietoa_3: "Наша мета - зробити подорожі до Гельсінкі максимально простими та приємними.",
+      tietoa_4: "Ми зібрали всю важливу інформацію, щоб ви могли зосередитися на насолоді своєю подорожжю.",
+      tietoa_5: "Цей мобільний путівник створений, щоб допомогти вам знайти найкращі пам’ятки, ресторани та активності в Гельсінкі.",
+      tietoa_6: "Ми прагнемо надавати актуальну та точну інформацію, щоб ви могли насолоджуватися своїм візитом до Гельсінкі.",
+      tietoa_7: "Якщо у вас є запитання або відгуки, не соромтеся зв’язатися з нами!",
+      tietoa_8: "Ви також можете стежити за нами в соціальних мережах, щоб отримувати останні новини та пропозиції.",
     },
     ru: {
       welcome: "Добро пожаловать в Хельсинки!",
@@ -77,7 +110,15 @@ export const translations = {
       yrityksille: "Для бизнеса",
       yhteistyökumppanit: "Партнеры",
       //tietoa
-      Tietoa_meistä: "О нас",
+      Tietoa_meista: "О нас",
+      tietoa_tervetuloa: "Добро пожаловать в мобильный путеводитель по Хельсинки!",
+      tietoa_kakskaveri: "Мы двое друзей, которые хотели создать простой и удобный способ найти лучшие места в городе.",
+      tietoa_3: "Наша цель - сделать путешествие в Хельсинки максимально простым и приятным.",
+      tietoa_4: "Мы собрали всю важную информацию, чтобы вы могли сосредоточиться на наслаждении своей поездкой.",
+      tietoa_5: "Этот мобильный путеводитель создан, чтобы помочь вам найти лучшие достопримечательности, рестораны и развлечения в Хельсинки.",
+      tietoa_6: "Мы стремимся предоставлять актуальную и точную информацию, чтобы вы могли наслаждаться своим визитом в Хельсинки.",
+      tietoa_7: "Если у вас есть вопросы или отзывы, не стесняйтесь обращаться к нам!",
+      tietoa_8: "Вы также можете следить за нами в социальных сетях, чтобы получать последние обновления и предложения.",
     }
   };
   
