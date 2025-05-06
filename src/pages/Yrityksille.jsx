@@ -10,7 +10,7 @@ const Yrityksille = () => {
         {t.yrityksille_2}
       </p>
       
-        <h1>{t.yrityksille_3}</h1>
+        <h3>{t.yrityksille_3}</h3>
         <p>{t.yrityksille_4}</p>
         <p>{t.yrityksille_5}</p>
         <p>{t.yrityksille_6}</p>

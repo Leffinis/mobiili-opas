@@ -283,6 +283,7 @@ main p {
 }
 
 .tietoa-page h2 {
+  text-align: justify;
   text-align: center;
   font-size: 2rem;
   color: #0066cc;
