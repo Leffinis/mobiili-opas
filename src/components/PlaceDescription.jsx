@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from 'react';
+import { LanguageContext } from "/src/components/LanguageContext";
 
 const PlaceDescription = ({ place }) => {
+  const { t } = useContext(LanguageContext);
   if (!place) {
     return (
       <div className="place-description">
-        <h2>Valitse paikka kartalta tai sivupalkista</h2>
-        <p>Tietoja valitusta paikasta näkyvät tässä.</p>
+        <h2>{t.placedescription_1}</h2>
+        <p>{t.placedescription_2}</p>
       </div>
     );
   }

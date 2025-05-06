@@ -41,7 +41,10 @@ export const translations = {
       // yhteistyökumppanit
       yhteistyokumppanit_1: "Yhteystyökumppanimme",
       yhteistyokumppanit_2: "Tilaa yhteistyökumppaneiden mainoksille.",
-  
+      // PlaceDescription
+      placedescription_1: "Valitse paikka kartalta tai sivupalkista",
+      placedescription_2: "Tietoja valitusta paikasta näkyvät tässä.",
+
     },
     en: {
       //header
@@ -85,6 +88,9 @@ export const translations = {
       // yhteistyökumppanit
       yhteistyokumppanit_1: "Our partners",
       yhteistyokumppanit_2: "Order ads for partners.",
+      //placedescription
+      placedescription_1: "Select a place from the map or sidebar",
+      placedescription_2: "Information about the selected place will be displayed here.",
     },
     sv: {
       //header
@@ -128,6 +134,10 @@ export const translations = {
       // yhteistyökumppanit
       yhteistyokumppanit_1: "Våra partners",
       yhteistyokumppanit_2: "Beställ annonser för partners.",
+      //placedescription
+      placedescription_1: "Välj en plats från kartan eller sidopanelen",
+      placedescription_2: "Information om den valda platsen visas här.",
+
 
 
     },
@@ -173,6 +183,9 @@ export const translations = {
       // yhteistyökumppanit
       yhteistyokumppanit_1: "Наші партнери",
       yhteistyokumppanit_2: "Замовити рекламу для партнерів.",
+      //placedescription
+      placedescription_1: "Оберіть місце на карті або в бічному меню",
+      placedescription_2: "Інформація про вибране місце відображатиметься тут.",
     },
     ru: {
       //header
@@ -216,6 +229,9 @@ export const translations = {
       // yhteistyökumppanit
       yhteistyokumppanit_1: "Наши партнеры",
       yhteistyokumppanit_2: "Заказать рекламу для партнеров.",
+      //placedescription
+      placedescription_1: "Выберите место на карте или в боковом меню",
+      placedescription_2: "Информация о выбранном месте будет отображаться здесь.",
     }
   };
   
