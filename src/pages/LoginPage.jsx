@@ -15,8 +15,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="app-wrapper">
-      <main className="login-container">
+      <div className="login-container">
         <form onSubmit={handleLogin} className="login-form">
           <h2 className="login-title">Kirjaudu sisään</h2>
           <div className="form-group">
@@ -41,7 +40,6 @@ export default function LoginPage() {
           </div>
           <button type="submit" className="login-button">Kirjaudu</button>
         </form>
-      </main>
-    </div>
+      </div>
   );
 }

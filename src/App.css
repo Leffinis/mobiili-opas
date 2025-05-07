@@ -326,6 +326,7 @@ main p {
 
 /* LOGIN PAGE */
 .login-container {
+  margin-top: 82px;
   display: flex;
   justify-content: center;
   align-items: center;
