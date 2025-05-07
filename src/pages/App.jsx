@@ -21,6 +21,7 @@ import LoginPage from "/src/pages/LoginPage.jsx";
 
 
 function App() {
+  const [routeCoordinates, setRouteCoordinates] = useState([]);
   const [category, setCategory] = useState("sightseeing");
   const [places, setPlaces] = useState([]);
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -68,9 +69,11 @@ function App() {
                     setPlaces={setPlaces}
                     selectedPlace={selectedPlace}
                     setSelectedPlace={setSelectedPlace}
+                    routeCoordinates={routeCoordinates}
                   />
                 </div>
-                <PlaceDescription place={selectedPlace} />
+                <PlaceDescription place={selectedPlace}
+                setRouteCoordinates={setRouteCoordinates} />
                 <Sidebar
                   category={category}
                   setCategory={setCategory}

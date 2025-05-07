@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import { LanguageContext } from "/src/components/LanguageContext";
+import RouteButton from "./RouteButton";
 
-const PlaceDescription = ({ place }) => {
+const PlaceDescription = ({ place, setRouteCoordinates }) => {
   const { t } = useContext(LanguageContext);
+
   if (!place) {
     return (
       <div className="place-description">
@@ -23,6 +25,7 @@ const PlaceDescription = ({ place }) => {
         />
       )}
       <p>{place.description}</p>
+      <RouteButton place={place} setRouteCoordinates={setRouteCoordinates} />
     </div>
   );
 };

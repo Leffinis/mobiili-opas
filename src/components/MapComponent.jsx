@@ -1,72 +1,94 @@
 import React, { useEffect, useRef } from "react";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 
-const MapComponent = ({ category, setPlaces, selectedPlace, setSelectedPlace }) => {
+const MapComponent = ({
+  category,
+  setPlaces,
+  selectedPlace,
+  setSelectedPlace,
+  routeCoordinates
+}) => {
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
   const markers = useRef([]);
+  const routeLayer = useRef(null); // для линии маршрута
 
+  // Инициализация карты
   useEffect(() => {
-    
     if (!mapRef.current || mapInstance.current) return;
 
-    // initializing the map
     mapInstance.current = L.map(mapRef.current).setView([60.1699, 24.9384], 13);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors",
     }).addTo(mapInstance.current);
-  }, []); // only run once when the component mounts
+  }, []);
 
+  // Загрузка мест по категории
   useEffect(() => {
     if (!mapInstance.current || !category) return;
 
-    // fetch to get places based on the selected category
     fetch(`http://localhost:3000/places/${category}`)
       .then((res) => res.json())
       .then((data) => {
-        // remove old markers
+        // Очистка старых маркеров
         markers.current.forEach((marker) => {
           if (marker instanceof L.Marker) {
-            marker.remove(); // remove
+            marker.remove();
           }
         });
-        markers.current = []; // clear the array
+        markers.current = [];
+
         setPlaces(data);
 
-        // add new markers
+        // Добавление новых маркеров
         data.forEach((place) => {
           const marker = L.marker([place.latitude, place.longitude])
             .addTo(mapInstance.current)
             .bindPopup(place.name);
-        
+
           marker.on("click", () => {
-            setSelectedPlace(place); // set the selected place when marker is clicked
+            setSelectedPlace(place);
           });
-        
+
           markers.current.push(marker);
         });
-        
 
-        // if a place is selected, center the map on it and open its popup
+        // Попап и центрирование выбранного места
         if (selectedPlace) {
           const placeMarker = markers.current.find(
             (marker) => marker.getPopup().getContent() === selectedPlace.name
           );
           if (placeMarker) {
-            // center map on the selected place, but it not works good then i commented it
-            /*mapInstance.current.setView(
-              [placeMarker.getLatLng().lat, placeMarker.getLatLng().lng],
-              10 // zoom in on the selected place
-            );*/
-            placeMarker.openPopup(); // open the popup of the selected place
+            placeMarker.openPopup();
           }
         }
       })
-      .catch((err) => console.error("Error fetching places:", err));
-  }, [category, selectedPlace]); // re-run when category or selectedPlace changes
+      .catch((err) => console.error("Ошибка загрузки мест:", err));
+  }, [category, selectedPlace]);
 
-  return <div id="map" ref={mapRef}  />;
+  // Отображение маршрута
+  useEffect(() => {
+    if (!mapInstance.current) return;
+
+    // Удалить старый маршрут, если был
+    if (routeLayer.current) {
+      mapInstance.current.removeLayer(routeLayer.current);
+      routeLayer.current = null;
+    }
+
+    if (routeCoordinates && routeCoordinates.length > 0) {
+      routeLayer.current = L.polyline(routeCoordinates, {
+        color: "blue",
+        weight: 4,
+      }).addTo(mapInstance.current);
+
+      mapInstance.current.fitBounds(routeLayer.current.getBounds());
+    }
+  }, [routeCoordinates]);
+
+  return <div id="map" ref={mapRef} style={{ height: "100vh", width: "100%" }} />;
 };
 
 export default MapComponent;
