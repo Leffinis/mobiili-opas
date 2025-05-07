@@ -52,7 +52,7 @@ function App() {
       </nav>
 
       {/* Header toimi vain koti sivulla */}
-      {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille"].includes(location.pathname) && <Header />}
+      {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille", "/kirjaudu"].includes(location.pathname) && <Header />}
 
 
       <main id="content">
