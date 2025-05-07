@@ -6,11 +6,11 @@ const Yrityksille = () => {
   return (
     <div className="tietoa-page">
       <h2>{t.yrityksille_1}</h2>
-      <p>
+    {/*   <p>
         {t.yrityksille_2}
-      </p>
+      </p> */}
       
-        <h3>{t.yrityksille_3}</h3>
+{/*         <h3>{t.yrityksille_3}</h3> */}
         <p>{t.yrityksille_4}</p>
         <p>{t.yrityksille_5}</p>
         <p>{t.yrityksille_6}</p>
