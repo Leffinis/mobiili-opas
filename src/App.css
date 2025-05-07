@@ -277,9 +277,9 @@ main p {
 
 .tietoa-page {
   width: 100%;
-  margin: auto; 
   padding: 20px;
   box-sizing: border-box;
+  margin-top: 82px
 }
 
 .tietoa-page h2 {
