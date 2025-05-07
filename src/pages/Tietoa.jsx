@@ -12,9 +12,9 @@ const Tietoa = () => {
         <p>{t.tietoa_kakskaveri}</p>
         <p>{t.tietoa_3}</p>
         <p>{t.tietoa_4}</p>
-        <p>{t.tietoa_5}</p>
+{/*         <p>{t.tietoa_5}</p>
         <p>{t.tietoa_6}</p>
-        <p>{t.tietoa_7}</p>
+        <p>{t.tietoa_7}</p> */}
         <p>{t.tietoa_8}</p>
         </div>
   );

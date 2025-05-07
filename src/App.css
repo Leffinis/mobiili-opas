@@ -279,7 +279,7 @@ main p {
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  margin-top: 82px
+  margin-top: 82px;
 }
 
 .tietoa-page h2 {
@@ -290,11 +290,14 @@ main p {
 }
 
 .tietoa-page p {
-  text-align: justify;
+  text-align: absolute;
   font-size: 1.1rem;
   color: #333;
-  line-height: 1.6;
-  text-align: left;
+  line-height: 1.5;
+  text-align: match-parent;
+  margin: 0 auto;
+  max-width: 650px;
+
 }
 
 .place-description {
