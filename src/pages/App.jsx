@@ -16,6 +16,8 @@ import Tietoa from "/src/pages/Tietoa.jsx";
 import Yhteistyokumppanit from "/src/pages/Yhteistyokumppanit.jsx";
 import Yhteystiedot from "/src/pages/Yhteystiedot.jsx";
 import Yrityksille from "/src/pages/Yrityksille.jsx";
+import LoginPage from "/src/pages/LoginPage.jsx";
+
 
 
 function App() {
@@ -82,6 +84,7 @@ function App() {
           <Route path="/yhteistyokumppanit" element={<Yhteistyokumppanit />} />
           <Route path="/yhteystiedot" element={<Yhteystiedot />} />
           <Route path="/yrityksille" element={<Yrityksille />} />
+          <Route path="/kirjaudu" element={<LoginPage />} />
         </Routes>
       </main>
 

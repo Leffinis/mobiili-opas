@@ -324,3 +324,65 @@ main p {
   gap: 20px;
 }
 
+/* LOGIN PAGE */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 40px 15px;
+  background-color: #f8f9fa;
+}
+
+.login-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0066cc;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #004999;
+}
