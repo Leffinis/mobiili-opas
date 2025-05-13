@@ -3,24 +3,42 @@ import React from "react";
 const RouteButton = ({ place, setRouteCoordinates }) => {
   const handleRouteClick = () => {
     if (!navigator.geolocation) {
-      alert("Selaimesi ei tue geopaikannusta.");
+      alert("Ваш браузер не поддерживает геолокацию.");
       return;
     }
 
     navigator.geolocation.getCurrentPosition(async (position) => {
-      const userLat = position.coords.latitude;
-      const userLng = position.coords.longitude;
-      const destLat = place.latitude;
-      const destLng = place.longitude;
+      try {
+        const userLat = position.coords.latitude;
+        const userLng = position.coords.longitude;
+        const destLat = place.latitude;
+        const destLng = place.longitude;
 
-      const response = await fetch(
-        `https://router.project-osrm.org/route/v1/walking/${userLng},${userLat};${destLng},${destLat}?overview=full&geometries=geojson`
-      );
+        // Вызываем ваш серверный прокси, а не Digitransit напрямую
+        const response = await fetch("http://localhost:3000/api/route", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ fromLat: userLat, fromLng: userLng, toLat: destLat, toLng: destLng })
+        });
 
-      const data = await response.json();
-      if (data.routes.length > 0) {
-        const coordinates = data.routes[0].geometry.coordinates.map(([lng, lat]) => [lat, lng]);
-        setRouteCoordinates(coordinates);
+        if (!response.ok) {
+          throw new Error(`Network error: ${response.status} ${response.statusText}`);
+        }
+
+        const itineraries = await response.json();
+        if (!itineraries.length || !itineraries[0].legs.length) {
+          alert("Маршрут не найден.");
+          return;
+        }
+
+        // Преобразуем [lon, lat] → [lat, lon] и объединяем все сегменты
+        const coords = itineraries[0].legs.flatMap(leg =>
+          leg.geometry.coordinates.map(([lng, lat]) => [lat, lng])
+        );
+        setRouteCoordinates(coords);
+      } catch (error) {
+        console.error("Ошибка при получении маршрута:", error);
+        alert("Не удалось загрузить маршрут.");
       }
     });
   };
