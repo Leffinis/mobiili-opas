@@ -34,7 +34,7 @@ const RouteButton = ({ place, setRouteCoordinates, setRouteLegs }) => {
           const legs = await response.json();
 
           if (!Array.isArray(legs) || legs.length === 0) {
-            alert("Маршрут не найден.");
+            alert("En voi löytää reittiä.");
             return;
           }
 

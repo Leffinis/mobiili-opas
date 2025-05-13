@@ -95,7 +95,7 @@ const MapComponent = ({
         const isWalk = leg.mode === "WALK";
         const lineOpts = isWalk
           ? {
-              color: "#888888",
+              color: "#393E46",
               weight: 4,
               dashArray: "8,8",
             }
