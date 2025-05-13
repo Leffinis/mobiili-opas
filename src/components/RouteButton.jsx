@@ -1,4 +1,5 @@
 import React from "react";
+import "./RouteButton.css"; // css import
 
 const RouteButton = ({ place, setRouteCoordinates, setRouteLegs }) => {
   const handleRouteClick = () => {
@@ -42,13 +43,13 @@ const RouteButton = ({ place, setRouteCoordinates, setRouteLegs }) => {
           // 2) детали для списка
           setRouteLegs(legs);
         } catch (err) {
-          console.error("Ошибка при получении маршрута:", err);
-          alert("Не удалось загрузить маршрут.");
+          console.error("Virhe: ", err);
+          alert("En voi ladata reittiä. Yritä uudelleen myöhemmin.");
         }
       },
       (error) => {
-        console.error("Ошибка геолокации:", error);
-        alert("Не удалось определить ваше местоположение.");
+        console.error("Virhe: ", error);
+        alert("Missä olet?");
       }
     );
   };
