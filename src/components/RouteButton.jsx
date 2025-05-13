@@ -2,49 +2,55 @@ import React from "react";
 
 const RouteButton = ({ place, setRouteCoordinates, setRouteLegs }) => {
   const handleRouteClick = () => {
+    if (!place) {
+      alert("Сначала выберите место.");
+      return;
+    }
     if (!navigator.geolocation) {
       alert("Ваш браузер не поддерживает геолокацию.");
       return;
     }
 
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      try {
-        const userLat = position.coords.latitude;
-        const userLng = position.coords.longitude;
-        const destLat = place.latitude;
-        const destLng = place.longitude;
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        try {
+          const userLat = position.coords.latitude;
+          const userLng = position.coords.longitude;
+          const destLat = place.latitude;
+          const destLng = place.longitude;
 
-        const response = await fetch("http://localhost:3000/api/route", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fromLat: userLat,
-            fromLng: userLng,
-            toLat:   destLat,
-            toLng:   destLng,
-          }),
-        });
+          const response = await fetch("http://localhost:3000/api/route", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ fromLat: userLat, fromLng: userLng, toLat: destLat, toLng: destLng }),
+          });
 
-        if (!response.ok) {
-          throw new Error(`Network error: ${response.status} ${response.statusText}`);
+          if (!response.ok) {
+            throw new Error(`Network error: ${response.status} ${response.statusText}`);
+          }
+
+          // Наш прокси отдаёт просто массив legs
+          const legs = await response.json();
+
+          if (!Array.isArray(legs) || legs.length === 0) {
+            alert("Маршрут не найден.");
+            return;
+          }
+
+          // 1) координаты для карты
+          setRouteCoordinates(legs.flatMap((leg) => leg.geometry.coordinates));
+          // 2) детали для списка
+          setRouteLegs(legs);
+        } catch (err) {
+          console.error("Ошибка при получении маршрута:", err);
+          alert("Не удалось загрузить маршрут.");
         }
-
-        const itineraries = await response.json();
-        if (!itineraries.length || !itineraries[0].legs.length) {
-          alert("Маршрут не найден.");
-          return;
-        }
-
-        const legs = itineraries[0].legs;
-        // 1) передаем клиенту массив полилиний для карты
-        setRouteCoordinates(legs.map((leg) => leg.geometry.coordinates));
-        // 2) передаем клиенту детали каждой leg для разметки списка
-        setRouteLegs(legs);
-      } catch (error) {
-        console.error("Ошибка при получении маршрута:", error);
-        alert("Не удалось загрузить маршрут.");
+      },
+      (error) => {
+        console.error("Ошибка геолокации:", error);
+        alert("Не удалось определить ваше местоположение.");
       }
-    });
+    );
   };
 
   return (

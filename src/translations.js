@@ -52,6 +52,7 @@ export const translations = {
       route_transfers: "Vaihdot",
       route_from:      "Lähtö",
       route_to:        "Määränpää",
+      route_platform: "Laituri",
 
     },
     en: {
@@ -107,6 +108,7 @@ export const translations = {
       route_transfers: "Transfers",
       route_from:      "From",
       route_to:        "To",
+      route_platform: "Platform",
     },
     sv: {
       //header
@@ -161,6 +163,7 @@ export const translations = {
       route_transfers: "Byten",
       route_from:      "Från",
       route_to:        "Till",
+      route_platform: "Plattform",
 
     },
     uk: {
@@ -216,6 +219,7 @@ export const translations = {
       route_transfers: "Пересадки",
       route_from:      "З",
       route_to:        "До",
+      route_platform: "Платформа",
     },
     ru: {
       //header
@@ -270,6 +274,7 @@ export const translations = {
       route_transfers: "Пересадки",
       route_from:      "От",
       route_to:        "До",
+      route_platform: "Платформа",
     }
   };
   
