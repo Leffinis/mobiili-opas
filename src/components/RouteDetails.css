@@ -1,0 +1,87 @@
+/* Панель со сводкой маршрута */
+.route-details-panel {
+    max-width: 400px;
+    margin: 16px auto;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333333;
+  }
+  
+  /* Секция с общей информацией */
+  .route-details-panel .summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .route-details-panel .summary div {
+    text-align: center;
+    font-size: 14px;
+  }
+  .route-details-panel .summary strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  /* Список отрезков маршрута */
+  .route-details-panel .legs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .route-details-panel .leg-item {
+    padding: 12px 0;
+    border-top: 1px solid #e6e6e6;
+  }
+  .route-details-panel .leg-item:first-child {
+    border-top: none;
+  }
+  
+  /* Заголовок отрезка: иконка + информация */
+  .leg-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .leg-header .icon {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+  .leg-header .route-name {
+    font-weight: 600;
+    margin-right: auto;
+  }
+  .leg-header .leg-times {
+    font-size: 12px;
+    color: #666666;
+  }
+  
+  /* Цвета иконок по типу транспорта */
+  .icon.bus { color: #005bbb; /* синий для автобуса */ }
+  .icon.rail { color: #e30000; /* красный для поезда */ }
+  .icon.subway { color: #00994d; /* зелёный для метро */ }
+  .icon.walk { color: #333333; /* тёмно-серый для пешего */ }
+  
+  /* Описание остановок */
+  .leg-stops {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+  .leg-stops .stop {
+    flex: 1;
+  }
+  .leg-stops .stop-label {
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  
+  /* Отступы и линии разделения */
+  .route-details-panel .leg-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }

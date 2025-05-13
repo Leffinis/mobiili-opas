@@ -10,7 +10,6 @@ import "leaflet/dist/leaflet.css";
 import "../App.css";
 import PlaceDescription from "../components/PlaceDescription";
 
-
 //PAGES
 import Tietoa from "/src/pages/Tietoa.jsx";
 import Yhteistyokumppanit from "/src/pages/Yhteistyokumppanit.jsx";
@@ -18,10 +17,10 @@ import Yhteystiedot from "/src/pages/Yhteystiedot.jsx";
 import Yrityksille from "/src/pages/Yrityksille.jsx";
 import LoginPage from "/src/pages/LoginPage.jsx";
 
-
-
 function App() {
+  // Новые состояния для маршрута
   const [routeCoordinates, setRouteCoordinates] = useState([]);
+  const [routeLegs, setRouteLegs] = useState([]);
   const [category, setCategory] = useState("sightseeing");
   const [places, setPlaces] = useState([]);
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -52,16 +51,14 @@ function App() {
         </div>
       </nav>
 
-      {/* Header toimi vain koti sivulla */}
+      {/* Header отображается только на главной */}
       {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille", "/kirjaudu"].includes(location.pathname) && <Header />}
-
 
       <main id="content">
         <Routes>
           <Route
             path="/"
             element={
-              
               <>
                 <div id="map-container">
                   <MapComponent
@@ -70,10 +67,15 @@ function App() {
                     selectedPlace={selectedPlace}
                     setSelectedPlace={setSelectedPlace}
                     routeCoordinates={routeCoordinates}
+                    routeLegs={routeLegs} // передаём legs для отрисовки разных линий
                   />
                 </div>
-                <PlaceDescription place={selectedPlace}
-                setRouteCoordinates={setRouteCoordinates} />
+                <PlaceDescription
+                  place={selectedPlace}
+                  setRouteCoordinates={setRouteCoordinates}
+                  setRouteLegs={setRouteLegs} // передаём setRouteLegs для обновления
+                  routeLegs={routeLegs}        // передаём legs для списка поездок
+                />
                 <Sidebar
                   category={category}
                   setCategory={setCategory}

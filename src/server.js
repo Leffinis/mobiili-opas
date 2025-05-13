@@ -3,7 +3,7 @@ import sqlite3 from "sqlite3";
 import cors from "cors";
 import path from "path";
 import fetch from "node-fetch";
-import polyline from "@mapbox/polyline"; // npm install @mapbox/polyline
+import polyline from "@mapbox/polyline";  // npm install @mapbox/polyline
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -14,9 +14,9 @@ const port = 3000;
 
 // Разрешаем запросы с вашего фронтенда (Vite на 5173)
 app.use(cors({ origin: "http://localhost:5173" }));
-app.use(express.json());                  // для парсинга JSON-тел
+app.use(express.json());
 
-// Существующий эндпоинт для мест из БД
+// Эндпоинт для мест из БД
 const db = new sqlite3.Database(path.join(__dirname, "database.db"));
 app.get("/places/:category", (req, res) => {
   db.all(
@@ -29,7 +29,7 @@ app.get("/places/:category", (req, res) => {
   );
 });
 
-// Прокси-эндпоинт для маршрутов с декодированием полилинии
+// Прокси-эндпоинт для маршрутов (Routing v2)
 app.post("/api/route", async (req, res) => {
   try {
     const { fromLat, fromLng, toLat, toLng } = req.body;
@@ -43,9 +43,12 @@ app.post("/api/route", async (req, res) => {
           itineraries {
             legs {
               mode
-              legGeometry {
-                points
-              }
+              startTime
+              endTime
+              from { name }
+              to   { name }
+              route { shortName }
+              legGeometry { points }
             }
           }
         }
@@ -66,17 +69,22 @@ app.post("/api/route", async (req, res) => {
 
     if (!dgResp.ok) throw new Error(`${dgResp.status} ${dgResp.statusText}`);
     const dgJson = await dgResp.json();
-    if (dgJson.errors) {
-      throw new Error(JSON.stringify(dgJson.errors));
-    }
+    if (dgJson.errors) throw new Error(JSON.stringify(dgJson.errors));
 
     const itineraries = dgJson.data.plan.itineraries;
-    // Декодируем полилинию и формируем geometry.coordinates
+    // Декодируем полилинию и используем координаты в формате [lat, lng]
     const processed = itineraries.map((itin) => ({
       legs: itin.legs.map((leg) => {
         const coords = polyline.decode(leg.legGeometry.points); // [[lat, lng], ...]
-        const swapped = coords.map(([lat, lng]) => [lng, lat]);
-        return { mode: leg.mode, geometry: { coordinates: swapped } };
+        return {
+          mode:      leg.mode,
+          route:     leg.route?.shortName || null,
+          startTime: leg.startTime,
+          endTime:   leg.endTime,
+          from:      leg.from.name,
+          to:        leg.to.name,
+          geometry:  { coordinates: coords },
+        };
       }),
     }));
 

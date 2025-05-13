@@ -1,8 +1,14 @@
 import React, { useContext } from "react";
-import { LanguageContext } from "/src/components/LanguageContext";
+import { LanguageContext } from "./LanguageContext";
 import RouteButton from "./RouteButton";
+import RouteDetails from "./RouteDetails";
 
-const PlaceDescription = ({ place, setRouteCoordinates }) => {
+const PlaceDescription = ({
+  place,
+  setRouteCoordinates,
+  setRouteLegs,
+  routeLegs,
+}) => {
   const { t } = useContext(LanguageContext);
 
   if (!place) {
@@ -21,11 +27,20 @@ const PlaceDescription = ({ place, setRouteCoordinates }) => {
         <img
           src={place.image_url}
           alt={place.name}
-          style={{ width: "100%", maxWidth: "400px", borderRadius: "12px" }}
+          className="place-image"
         />
       )}
-      <p>{place.description}</p>
-      <RouteButton place={place} setRouteCoordinates={setRouteCoordinates} />
+      <p className="place-text">{place.description}</p>
+
+      <RouteButton
+        place={place}
+        setRouteCoordinates={setRouteCoordinates}
+        setRouteLegs={setRouteLegs}
+      />
+
+      {routeLegs && routeLegs.length > 0 && (
+        <RouteDetails legs={routeLegs} />
+      )}
     </div>
   );
 };

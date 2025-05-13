@@ -1,6 +1,6 @@
 import React from "react";
 
-const RouteButton = ({ place, setRouteCoordinates }) => {
+const RouteButton = ({ place, setRouteCoordinates, setRouteLegs }) => {
   const handleRouteClick = () => {
     if (!navigator.geolocation) {
       alert("Ваш браузер не поддерживает геолокацию.");
@@ -14,11 +14,15 @@ const RouteButton = ({ place, setRouteCoordinates }) => {
         const destLat = place.latitude;
         const destLng = place.longitude;
 
-        // Вызываем ваш серверный прокси, а не Digitransit напрямую
         const response = await fetch("http://localhost:3000/api/route", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ fromLat: userLat, fromLng: userLng, toLat: destLat, toLng: destLng })
+          body: JSON.stringify({
+            fromLat: userLat,
+            fromLng: userLng,
+            toLat:   destLat,
+            toLng:   destLng,
+          }),
         });
 
         if (!response.ok) {
@@ -31,11 +35,11 @@ const RouteButton = ({ place, setRouteCoordinates }) => {
           return;
         }
 
-        // Преобразуем [lon, lat] → [lat, lon] и объединяем все сегменты
-        const coords = itineraries[0].legs.flatMap(leg =>
-          leg.geometry.coordinates.map(([lng, lat]) => [lat, lng])
-        );
-        setRouteCoordinates(coords);
+        const legs = itineraries[0].legs;
+        // 1) передаем клиенту массив полилиний для карты
+        setRouteCoordinates(legs.map((leg) => leg.geometry.coordinates));
+        // 2) передаем клиенту детали каждой leg для разметки списка
+        setRouteLegs(legs);
       } catch (error) {
         console.error("Ошибка при получении маршрута:", error);
         alert("Не удалось загрузить маршрут.");
