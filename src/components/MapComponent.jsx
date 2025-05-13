@@ -13,7 +13,7 @@ const MapComponent = ({
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
   const markersRef = useRef([]);
-  const layersRef = useRef(null); // для маршрутов и точек
+  const layersRef = useRef(null);
 
   // 1) Инициализация карты
   useEffect(() => {
@@ -24,7 +24,6 @@ const MapComponent = ({
       attribution: "&copy; OpenStreetMap contributors",
     }).addTo(map);
 
-    // группа для полилиний и transfer-поинтов
     layersRef.current = L.layerGroup().addTo(map);
     mapInstance.current = map;
   }, []);
@@ -34,33 +33,31 @@ const MapComponent = ({
     const map = mapInstance.current;
     if (!map || !category) return;
 
-    // сброс старых
-    markersRef.current.forEach(m => m.remove());
+    markersRef.current.forEach((m) => m.remove());
     markersRef.current = [];
 
     fetch(`http://localhost:3000/places/${category}`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setPlaces(data);
-        data.forEach(place => {
+        data.forEach((place) => {
           const m = L.marker([place.latitude, place.longitude])
             .addTo(map)
             .bindPopup(place.name);
           m.on("click", () => setSelectedPlace(place));
           markersRef.current.push(m);
         });
-        // открыть попап выбранного
         if (selectedPlace) {
           const found = markersRef.current.find(
-            m => m.getPopup().getContent() === selectedPlace.name
+            (m) => m.getPopup().getContent() === selectedPlace.name
           );
           if (found) found.openPopup();
         }
       })
-      .catch(err => console.error("Ошибка загрузки мест:", err));
-  }, [category, selectedPlace]);
+      .catch((err) => console.error("Ошибка загрузки мест:", err));
+  }, [category, selectedPlace, setPlaces, setSelectedPlace]);
 
-  // 3) Отрисовка маршрута + точек пересадки
+  // 3) Отрисовка маршрута + точек пересадки, с пунктиром для WALK
   useEffect(() => {
     const map = mapInstance.current;
     const group = layersRef.current;
@@ -69,7 +66,6 @@ const MapComponent = ({
     group.clearLayers();
 
     if (Array.isArray(routeLegs) && routeLegs.length > 0) {
-      // поля для точек
       const dotStyle = {
         radius: 5,
         fillColor: "#fff",
@@ -78,33 +74,56 @@ const MapComponent = ({
         opacity: 1,
         fillOpacity: 1,
       };
+      const colors = ["#e30000", "#005bbb", "#00994d", "#ffa500", "#800080"]; // пример набор
 
-      // рисуем каждый leg своей линией
-      const colors = ["red", "green", "blue", "orange", "purple"];
       routeLegs.forEach((leg, i) => {
-        // полилиния
-        const line = L.polyline(leg.geometry.coordinates, {
-          color: colors[i % colors.length],
-          weight: 4,
-        }).addTo(group);
+        // Собираем coords, стыкуем с предыдущим leg, как раньше
+        let coords = leg.geometry.coordinates;
+        if (i > 0) {
+          const prev = routeLegs[i - 1].geometry.coordinates;
+          const lastPrev = prev[prev.length - 1];
+          if (
+            coords.length === 0 ||
+            coords[0][0] !== lastPrev[0] ||
+            coords[0][1] !== lastPrev[1]
+          ) {
+            coords = [lastPrev, ...coords];
+          }
+        }
 
-        // если это пересадка (не первая leg и смена вида транспорта) — ставим точку
+        // Опции линии: пунктир и серый для WALK, цвет для остальных
+        const isWalk = leg.mode === "WALK";
+        const lineOpts = isWalk
+          ? {
+              color: "#888888",
+              weight: 4,
+              dashArray: "8,8",
+            }
+          : {
+              color: colors[i % colors.length],
+              weight: 4,
+            };
+
+        L.polyline(coords, lineOpts).addTo(group);
+
+        // Точка пересадки при смене транспорта
         if (
           i > 0 &&
           routeLegs[i - 1].mode !== leg.mode &&
-          leg.geometry.coordinates.length
+          coords.length
         ) {
-          const [lat, lng] = leg.geometry.coordinates[0];
+          const [lat, lng] = coords[0];
           L.circleMarker([lat, lng], dotStyle).addTo(group);
         }
       });
 
-      // подгоняем вид под всё сразу
-      const all = routeLegs.flatMap(l => l.geometry.coordinates);
-      map.fitBounds(L.latLngBounds(all), { padding: [20, 20] });
-
+      const allCoords = routeLegs.flatMap((l) => l.geometry.coordinates);
+      map.fitBounds(L.latLngBounds(allCoords), { padding: [20, 20] });
     } else if (Array.isArray(routeCoordinates) && routeCoordinates.length) {
-      const poly = L.polyline(routeCoordinates, { color: "blue", weight: 4 });
+      const poly = L.polyline(routeCoordinates, {
+        color: "blue",
+        weight: 4,
+      });
       group.addLayer(poly);
       map.fitBounds(poly.getBounds(), { padding: [20, 20] });
     }

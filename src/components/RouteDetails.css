@@ -62,9 +62,10 @@
   
   /* Цвета иконок по типу транспорта */
   .icon.bus { color: #005bbb; /* синий для автобуса */ }
-  .icon.rail { color: #e30000; /* красный для поезда */ }
-  .icon.subway { color: #00994d; /* зелёный для метро */ }
+  .icon.rail { color: #3b0152; /* purple для поезда */ }
+  .icon.subway { color: #92000c; /* red для метро */ }
   .icon.walk { color: #333333; /* тёмно-серый для пешего */ }
+  .icon.tram { color: #005f08; /* green для трамвая */ }
   
   /* Описание остановок */
   .leg-stops {
