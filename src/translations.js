@@ -53,6 +53,8 @@ export const translations = {
       route_from:      "Lähtö",
       route_to:        "Määränpää",
       route_platform: "Laituri",
+      //RouteButton
+      route_button: "Reitti",
 
     },
     en: {
@@ -109,6 +111,8 @@ export const translations = {
       route_from:      "From",
       route_to:        "To",
       route_platform: "Platform",
+      //RouteButton
+      route_button: "Route",
     },
     sv: {
       //header
@@ -164,6 +168,8 @@ export const translations = {
       route_from:      "Från",
       route_to:        "Till",
       route_platform: "Plattform",
+      //RouteButton
+      route_button: "Rutt",
 
     },
     uk: {
@@ -220,6 +226,8 @@ export const translations = {
       route_from:      "З",
       route_to:        "До",
       route_platform: "Платформа",
+      //RouteButton
+      route_button: "Маршрут",
     },
     ru: {
       //header
@@ -275,6 +283,9 @@ export const translations = {
       route_from:      "От",
       route_to:        "До",
       route_platform: "Платформа",
+      //RouteButton
+      route_button: "Маршрут",
+      
     }
   };
   

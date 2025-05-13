@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from 'react'
 import "./RouteButton.css"; // css import
+import { LanguageContext } from "./LanguageContext";
 
 const RouteButton = ({ place, setRouteCoordinates, setRouteLegs }) => {
+  const { t } = useContext(LanguageContext);
   const handleRouteClick = () => {
     if (!place) {
       alert("Сначала выберите место.");
@@ -56,7 +58,7 @@ const RouteButton = ({ place, setRouteCoordinates, setRouteLegs }) => {
 
   return (
     <button onClick={handleRouteClick} className="route-button">
-      Näytä reitti
+      {t.route_button}
     </button>
   );
 };
