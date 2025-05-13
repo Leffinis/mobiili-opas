@@ -7,7 +7,7 @@ import {
   MdDirectionsWalk,
   MdDirectionsBoat,
 } from "react-icons/md";
-import "./RouteDetails.css"; // обязательно импортируем стили
+import "./RouteDetails.css";
 
 const modeIcon = {
   BUS: { icon: <MdDirectionsBus />,    cls: "bus"    },
@@ -18,13 +18,19 @@ const modeIcon = {
   SUBWAY: { icon: <MdTrain />,         cls: "subway" },
 };
 
+// Функция для форматирования времени без секунд
+const formatTime = (iso) => {
+  const date = new Date(iso);
+  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+};
+
 const RouteDetails = ({ legs }) => {
   const { t } = useContext(LanguageContext);
   if (!Array.isArray(legs) || legs.length === 0) return null;
 
   // Сводка
-  const depTime = new Date(legs[0].startTime).toLocaleTimeString();
-  const arrTime = new Date(legs[legs.length - 1].endTime).toLocaleTimeString();
+  const depTime = formatTime(legs[0].startTime);
+  const arrTime = formatTime(legs[legs.length - 1].endTime);
   const durationMin = Math.round(
     (new Date(legs[legs.length - 1].endTime) - new Date(legs[0].startTime)) / 60000
   );
@@ -58,7 +64,7 @@ const RouteDetails = ({ legs }) => {
                   {leg.mode} {leg.route || ""}
                 </span>
                 <span className="leg-times">
-                  {new Date(leg.startTime).toLocaleTimeString()}–{new Date(leg.endTime).toLocaleTimeString()}
+                  {formatTime(leg.startTime)}–{formatTime(leg.endTime)}
                 </span>
               </div>
               <div className="leg-stops">

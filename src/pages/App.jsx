@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import MapComponent from "../components/MapComponent";
 import Sidebar from "../components/Sidebar";
@@ -10,7 +10,7 @@ import "leaflet/dist/leaflet.css";
 import "../App.css";
 import PlaceDescription from "../components/PlaceDescription";
 
-//PAGES
+// PAGES
 import Tietoa from "/src/pages/Tietoa.jsx";
 import Yhteistyokumppanit from "/src/pages/Yhteistyokumppanit.jsx";
 import Yhteystiedot from "/src/pages/Yhteystiedot.jsx";
@@ -18,14 +18,22 @@ import Yrityksille from "/src/pages/Yrityksille.jsx";
 import LoginPage from "/src/pages/LoginPage.jsx";
 
 function App() {
-  // Новые состояния для маршрута
+  // состояния для маршрута
   const [routeCoordinates, setRouteCoordinates] = useState([]);
   const [routeLegs, setRouteLegs] = useState([]);
+
   const [category, setCategory] = useState("sightseeing");
   const [places, setPlaces] = useState([]);
   const [selectedPlace, setSelectedPlace] = useState(null);
+
   const { lang, setLang, t } = useContext(LanguageContext);
   const location = useLocation();
+
+  // при смене категории или выбранного места сбрасываем маршрут
+  useEffect(() => {
+    setRouteCoordinates([]);
+    setRouteLegs([]);
+  }, [category, selectedPlace]);
 
   const handleLanguageChange = (event) => {
     setLang(event.target.value);
@@ -52,7 +60,9 @@ function App() {
       </nav>
 
       {/* Header отображается только на главной */}
-      {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille", "/kirjaudu"].includes(location.pathname) && <Header />}
+      {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille", "/kirjaudu"].includes(location.pathname) && (
+        <Header />
+      )}
 
       <main id="content">
         <Routes>
@@ -67,14 +77,14 @@ function App() {
                     selectedPlace={selectedPlace}
                     setSelectedPlace={setSelectedPlace}
                     routeCoordinates={routeCoordinates}
-                    routeLegs={routeLegs} // передаём legs для отрисовки разных линий
+                    routeLegs={routeLegs}
                   />
                 </div>
                 <PlaceDescription
                   place={selectedPlace}
                   setRouteCoordinates={setRouteCoordinates}
-                  setRouteLegs={setRouteLegs} // передаём setRouteLegs для обновления
-                  routeLegs={routeLegs}        // передаём legs для списка поездок
+                  setRouteLegs={setRouteLegs}
+                  routeLegs={routeLegs}
                 />
                 <Sidebar
                   category={category}
