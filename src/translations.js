@@ -44,6 +44,14 @@ export const translations = {
       // PlaceDescription
       placedescription_1: "Valitse paikka kartalta tai sivupalkista",
       placedescription_2: "Tietoja valitusta paikasta näkyvät tässä.",
+      // RouteDetails
+      route_departure: "Lähtö",
+      route_arrival:   "Saapuminen",
+      route_duration:  "Kesto",
+      minutes:         "min",
+      route_transfers: "Vaihdot",
+      route_from:      "Lähtö",
+      route_to:        "Määränpää",
 
     },
     en: {
@@ -91,6 +99,14 @@ export const translations = {
       //placedescription
       placedescription_1: "Select a place from the map or sidebar",
       placedescription_2: "Information about the selected place will be displayed here.",
+      //RouteDetails
+      route_departure: "Departure",
+      route_arrival:   "Arrival",
+      route_duration:  "Duration",
+      minutes:         "min",
+      route_transfers: "Transfers",
+      route_from:      "From",
+      route_to:        "To",
     },
     sv: {
       //header
@@ -137,8 +153,14 @@ export const translations = {
       //placedescription
       placedescription_1: "Välj en plats från kartan eller sidopanelen",
       placedescription_2: "Information om den valda platsen visas här.",
-
-
+      // RouteDetails
+      route_departure: "Avgång",
+      route_arrival:   "Ankomst",
+      route_duration:  "Varaktighet",
+      minutes:         "min",
+      route_transfers: "Byten",
+      route_from:      "Från",
+      route_to:        "Till",
 
     },
     uk: {
@@ -186,6 +208,14 @@ export const translations = {
       //placedescription
       placedescription_1: "Оберіть місце на карті або в бічному меню",
       placedescription_2: "Інформація про вибране місце відображатиметься тут.",
+      //RouteDetails
+      route_departure: "Відправлення",
+      route_arrival:   "Прибуття",
+      route_duration:  "Тривалість",
+      minutes:         "хв",
+      route_transfers: "Пересадки",
+      route_from:      "З",
+      route_to:        "До",
     },
     ru: {
       //header
@@ -232,6 +262,14 @@ export const translations = {
       //placedescription
       placedescription_1: "Выберите место на карте или в боковом меню",
       placedescription_2: "Информация о выбранном месте будет отображаться здесь.",
+      //RouteDetails
+      route_departure: "Отправление",
+      route_arrival:   "Прибытие",
+      route_duration:  "Длительность",
+      minutes:         "мин",
+      route_transfers: "Пересадки",
+      route_from:      "От",
+      route_to:        "До",
     }
   };
   

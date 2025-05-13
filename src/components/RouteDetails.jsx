@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../components/LanguageContext";
 import { MdDirectionsBus, MdTrain, MdTram, MdSubway, MdDirectionsWalk, MdDirectionsBoat } from "react-icons/md";
 import "./RouteDetails.css";
 
@@ -12,26 +13,28 @@ const modeIcon = {
 };
 
 const RouteDetails = ({ legs }) => {
+  const { t } = useContext(LanguageContext);
   if (!legs || legs.length === 0) return null;
 
   const departure = new Date(legs[0].startTime);
   const arrival = new Date(legs[legs.length - 1].endTime);
   const durationMin = Math.round((arrival - departure) / 60000);
+  const transfers = legs.filter((leg) => leg.mode !== "WALK").length - 1;
 
   return (
     <div className="route-details-panel">
       <div className="summary">
         <div>
-          <strong>Отправление:</strong> {departure.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+          <strong>{t.route_departure}:</strong> {departure.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
         </div>
         <div>
-          <strong>Прибытие:</strong> {arrival.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+          <strong>{t.route_arrival}:</strong> {arrival.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
         </div>
         <div>
-          <strong>Длительность:</strong> {durationMin} мин
+          <strong>{t.route_duration}:</strong> {durationMin} {t.minutes}
         </div>
         <div>
-          <strong>Пересадки:</strong> {legs.filter((leg) => leg.mode !== "WALK").length - 1}
+          <strong>{t.route_transfers}:</strong> {transfers}
         </div>
       </div>
       <ul className="legs-list">
@@ -47,10 +50,10 @@ const RouteDetails = ({ legs }) => {
             </div>
             <div className="leg-stops">
               <div className="stop">
-                <span className="stop-label">От:</span> {leg.from}
+                <span className="stop-label">{t.route_from}:</span> {leg.from}
               </div>
               <div className="stop">
-                <span className="stop-label">До:</span> {leg.to}
+                <span className="stop-label">{t.route_to}:</span> {leg.to}
               </div>
             </div>
           </li>
