@@ -26,8 +26,7 @@ const PlaceDescription = ({
   // Формируем корректный src для картинки:
   // — если image_url уже начинается с "/", используем как есть
   // — иначе добавляем "/" впереди
-  const imgSrc =
-    place.image_url.startsWith("/") ? place.image_url : `/${place.image_url}`;
+  const imgSrc =place.image_url
 
   return (
     <div className="place-description">

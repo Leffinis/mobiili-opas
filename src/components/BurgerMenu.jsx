@@ -41,7 +41,7 @@ const BurgerMenu = () => {
         ref={menuRef}
       >
         
-        <span className="close-menu" onClick={() => setActive(false)}>X</span>
+        
         <ul>
           <li><Link to="/" onClick={() => setActive(false)}>{t.koti}</Link></li>
           <li><Link to="/kirjaudu" onClick={() => setActive(false)}>{t.kirjaudu}</Link></li>

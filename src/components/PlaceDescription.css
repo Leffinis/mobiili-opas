@@ -1,0 +1,25 @@
+.place-description {
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 1rem;
+    /* ширина уже задана App.css через flex */
+  }
+  
+  .place-description img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: .75rem;
+  }
+  
+  .place-description h2 {
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+  }
+  
+  .place-description .place-text {
+    margin-bottom: 1rem;
+  }
+  

@@ -52,8 +52,6 @@ nav a {
 
 
 .language-selector {
-  margin-left: auto;
-  margin-right: 100px;
   display: flex;
   align-items: center;
 }
@@ -70,18 +68,17 @@ nav a {
 
 /* Burger-меню */
 .ham-menu {
-  height: 50px;
-  width: 50px;
-  position: fixed;
-  right: 20px;
-  top: 15px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  z-index: 3000; 
-  transition: transform 0.3s ease-in-out; 
-}
+   height: 50px;
+   width: 50px;
+    /* теперь меню в потоке, а не фиксированное */
+    position: static;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+   justify-content: space-around;
+    z-index: 3000; 
+   transition: transform 0.3s ease-in-out; 
+  }
 
 .ham-menu span {
   height: 5px;
@@ -226,7 +223,6 @@ main p {
 }
 
 #category-container {
-  width: 30vw;
   height: 100%;
   overflow-y: auto;
 
@@ -305,7 +301,6 @@ main p {
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  width: 33%;
 }
 .place-description img {
   margin-bottom: 10px;
@@ -386,3 +381,19 @@ main p {
 .login-button:hover {
   background-color: #004999;
 }
+#map-container,
+.place-description,
+#category-container {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+}
+.nav-right {
+    display: flex;
+   align-items: center;
+   gap: 1rem;
+   margin-right: 1rem;
+   display: flex;
+   align-items: center;
+   gap: 1rem;      /* отступ между select и иконкой */
+   margin-right: 1rem; /* можно оставить или убрать по вкусу */
+  }

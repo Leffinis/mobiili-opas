@@ -61,6 +61,7 @@ function App() {
             <option value="uk">Українська</option>
             <option value="ru">Русский</option>
           </select>
+          <BurgerMenu />
         </div>
       </nav>
 
@@ -109,7 +110,6 @@ function App() {
         </Routes>
       </main>
 
-      <BurgerMenu />
       <Footer />
     </div>
   );
