@@ -104,13 +104,11 @@
   text-align: left;
 }
 
-/* первая колонка (Lähtö) — прижата к левому краю */
 .leg-stops .stop:nth-child(1) {
   justify-self: start;
 }
 
-/* вторая колонка (Määränpää) — прижата к левому краю своей колонки,
-   то есть начало блока будет от центра панели */
+
 .leg-stops .stop:nth-child(2) {
   justify-self: start;
 }
@@ -121,9 +119,6 @@
   margin-right: 0.25rem;
 }
 
-/* --------------------------------------------------
-   Акцентная рамка и фон для каждого mode
--------------------------------------------------- */
 .leg-item.bus {
   border-left: 4px solid var(--color-bus);
   background: rgba(0,91,187,var(--bg-opacity));

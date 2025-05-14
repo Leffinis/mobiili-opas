@@ -1,58 +1,55 @@
-import React, { useContext } from 'react'
-import "./RouteButton.css"; // css import
+import React, { useContext } from "react";
 import { LanguageContext } from "./LanguageContext";
+import "./RouteButton.css";
 
-const RouteButton = ({ place, setRouteCoordinates, setRouteLegs }) => {
+const RouteButton = ({
+  place,
+  setRouteCoordinates,
+  setRouteLegs,
+  onShowRoute,    // колбэк из PlaceDescription → App
+}) => {
   const { t } = useContext(LanguageContext);
+
   const handleRouteClick = () => {
     if (!place) {
-      alert("Valitse paikka ensi");
+      alert(t.route_origin);
       return;
     }
     if (!navigator.geolocation) {
-      alert("Ei ole sijaintitietoja");
+      alert(t.geolocation_unsupported || "Geolocation not supported");
       return;
     }
 
     navigator.geolocation.getCurrentPosition(
-      async (position) => {
+      async position => {
         try {
-          const userLat = position.coords.latitude;
-          const userLng = position.coords.longitude;
-          const destLat = place.latitude;
-          const destLng = place.longitude;
+          const fromLat = position.coords.latitude;
+          const fromLng = position.coords.longitude;
+          const toLat   = place.latitude;
+          const toLng   = place.longitude;
 
-          const response = await fetch("http://localhost:3000/api/route", {
+          const res = await fetch("http://localhost:3000/api/route", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ fromLat: userLat, fromLng: userLng, toLat: destLat, toLng: destLng }),
+            body:    JSON.stringify({ fromLat, fromLng, toLat, toLng }),
           });
+          if (!res.ok) throw new Error(res.statusText);
 
-          if (!response.ok) {
-            throw new Error(`Network error: ${response.status} ${response.statusText}`);
-          }
-
-          // Наш прокси отдаёт просто массив legs
-          const legs = await response.json();
-
+          const legs = await res.json();
           if (!Array.isArray(legs) || legs.length === 0) {
-            alert("En voi löytää reittiä.");
+            alert(t.route_not_found);
             return;
           }
 
-          // 1) координаты для карты
-          setRouteCoordinates(legs.flatMap((leg) => leg.geometry.coordinates));
-          // 2) детали для списка
+          setRouteCoordinates(legs.flatMap(l => l.geometry.coordinates));
           setRouteLegs(legs);
+          onShowRoute();    // включаем режим «скрывать все маркеры, кроме выбранного»
         } catch (err) {
-          console.error("Virhe: ", err);
-          alert("En voi ladata reittiä. Yritä uudelleen myöhemmin.");
+          console.error(err);
+          alert(t.route_load_error);
         }
       },
-      (error) => {
-        console.error("Virhe: ", error);
-        alert("Missä olet?");
-      }
+      () => alert(t.geolocation_error)
     );
   };
 
