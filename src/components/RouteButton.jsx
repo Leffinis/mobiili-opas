@@ -6,11 +6,11 @@ const RouteButton = ({ place, setRouteCoordinates, setRouteLegs }) => {
   const { t } = useContext(LanguageContext);
   const handleRouteClick = () => {
     if (!place) {
-      alert("Сначала выберите место.");
+      alert("Valitse paikka ensi");
       return;
     }
     if (!navigator.geolocation) {
-      alert("Ваш браузер не поддерживает геолокацию.");
+      alert("Ei ole sijaintitietoja");
       return;
     }
 

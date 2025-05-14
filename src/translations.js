@@ -53,6 +53,12 @@ export const translations = {
       route_from:      "Lähtö",
       route_to:        "Määränpää",
       route_platform: "Laituri",
+      mode_walk:  "Kävely",
+      mode_bus:   "Bussi",
+      mode_rail:  "Lähijuna",
+      mode_tram:  "Raitiovaunu",
+      mode_ferry: "Lautta",
+      mode_subway:"Metro",
       //RouteButton
       route_button: "Reitti",
 
@@ -111,6 +117,13 @@ export const translations = {
       route_from:      "From",
       route_to:        "To",
       route_platform: "Platform",
+      mode_walk:  "Walk",
+      mode_bus:   "Bus",
+      mode_rail:  "Rail",
+      mode_tram:  "Tram",
+      mode_ferry: "Ferry",
+      mode_subway:"Subway",
+    
       //RouteButton
       route_button: "Route",
     },
@@ -168,6 +181,13 @@ export const translations = {
       route_from:      "Från",
       route_to:        "Till",
       route_platform: "Plattform",
+      mode_walk:  "Promenad",
+      mode_bus:   "Buss",
+      mode_rail:  "Regionaltåg",
+      mode_tram:  "Spårvagn",
+      mode_ferry: "Färja",
+      mode_subway:"Tunnelbana",
+      
       //RouteButton
       route_button: "Rutt",
 
@@ -226,6 +246,12 @@ export const translations = {
       route_from:      "З",
       route_to:        "До",
       route_platform: "Платформа",
+      mode_walk:  "Пішки",
+      mode_bus:   "Автобус",
+      mode_rail:  "Приміський поїзд",
+      mode_tram:  "Трамвай",
+      mode_ferry: "Паром",
+      mode_subway:"Метро",
       //RouteButton
       route_button: "Маршрут",
     },
@@ -283,6 +309,12 @@ export const translations = {
       route_from:      "От",
       route_to:        "До",
       route_platform: "Платформа",
+      mode_walk:  "Пешком",
+      mode_bus:   "Автобус",
+      mode_rail:  "Пригородный поезд",
+      mode_tram:  "Трамвай",
+      mode_ferry: "Паром",
+      mode_subway:"Метро",
       //RouteButton
       route_button: "Маршрут",
       

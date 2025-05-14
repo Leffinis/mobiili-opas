@@ -10,25 +10,33 @@ import {
 import "./RouteDetails.css";
 
 const modeIcon = {
-  BUS: { icon: <MdDirectionsBus />,    cls: "bus"    },
-  RAIL: { icon: <MdTrain />,           cls: "rail"   },
-  TRAM: { icon: <MdTram />,            cls: "rail"   },
-  WALK: { icon: <MdDirectionsWalk />,  cls: "walk"   },
-  FERRY: { icon: <MdDirectionsBoat />, cls: "rail"   },
-  SUBWAY: { icon: <MdTrain />,         cls: "subway" },
+  BUS:    { icon: <MdDirectionsBus />,   cls: "bus"    },
+  RAIL:   { icon: <MdTrain />,           cls: "rail"   },
+  TRAM:   { icon: <MdTram />,            cls: "tram"   },
+  WALK:   { icon: <MdDirectionsWalk />,  cls: "walk"   },
+  FERRY:  { icon: <MdDirectionsBoat />,  cls: "ferry"  },
+  SUBWAY: { icon: <MdTrain />,           cls: "subway" },
 };
 
-// Функция для форматирования времени без секунд
-const formatTime = (iso) => {
-  const date = new Date(iso);
-  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-};
+// Вспомогательная функция для форматирования времени без секунд
+const formatTime = (iso) =>
+  new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
 const RouteDetails = ({ legs }) => {
   const { t } = useContext(LanguageContext);
   if (!Array.isArray(legs) || legs.length === 0) return null;
 
-  // Сводка
+  // Переводы для типов транспорта
+  const modeLabels = {
+    WALK:   t.mode_walk,
+    BUS:    t.mode_bus,
+    RAIL:   t.mode_rail,
+    TRAM:   t.mode_tram,
+    FERRY:  t.mode_ferry,
+    SUBWAY: t.mode_subway,
+  };
+
+  // Общая сводка
   const depTime = formatTime(legs[0].startTime);
   const arrTime = formatTime(legs[legs.length - 1].endTime);
   const durationMin = Math.round(
@@ -55,13 +63,14 @@ const RouteDetails = ({ legs }) => {
 
       <ul className="legs-list">
         {legs.map((leg, i) => {
-          const mi = modeIcon[leg.mode] || {};
+          const m = modeIcon[leg.mode] || {};
+          const label = modeLabels[leg.mode] || leg.mode;
           return (
-            <li key={i} className="leg-item">
+            <li key={i} className={`leg-item ${m.cls}`}>
               <div className="leg-header">
-                <span className={`icon ${mi.cls || ""}`}>{mi.icon}</span>
+                <span className={`icon ${m.cls}`}>{m.icon}</span>
                 <span className="route-name">
-                  {leg.mode} {leg.route || ""}
+                  {label} {leg.route || ""}
                 </span>
                 <span className="leg-times">
                   {formatTime(leg.startTime)}–{formatTime(leg.endTime)}
