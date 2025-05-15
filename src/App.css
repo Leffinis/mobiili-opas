@@ -60,6 +60,7 @@ nav a {
   align-items: center;
   gap: 1rem;
   margin-right: 1rem;
+  z-index: 4000;
 }
 
 /* Стиль для селектора языка / Kielivalinnan ulkoasu */
@@ -80,6 +81,7 @@ nav a {
   transition: border-color 0.2s, box-shadow 0.2s;
   min-width: 120px;                     /* Минимальная ширина / Minimi leveys */
   position: relative;
+  z-index:4100;
 }
 
 /* Hover/focus для языка / Hover ja focus-efekti */
