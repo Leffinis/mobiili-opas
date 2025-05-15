@@ -60,7 +60,7 @@ app.post("/api/route", async (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "digitransit-subscription-key": "5562e21591b84892b3d3c5899b563d15",
+          "digitransit-subscription-key": "df740b887fa6454a9f6f714a8d4a1cf2",
         },
         body: JSON.stringify({ query: graphqlQuery }),
       }
