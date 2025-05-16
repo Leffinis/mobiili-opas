@@ -64,8 +64,7 @@ nav a {
 }
 
 /* Стиль для селектора языка / Kielivalinnan ulkoasu */
-.nav-right select,
-#language-select {
+.nav-right select {
   appearance: none;                      /* Без стандартных стрелок / Ei oletusnuolta */
   padding: 6px 36px 6px 12px;            /* Справа место под стрелку / Oikealle tilaa nuolelle */
   font-family: 'Poppins', Arial, sans-serif;
@@ -86,9 +85,7 @@ nav a {
 
 /* Hover/focus для языка / Hover ja focus-efekti */
 .nav-right select:hover,
-#language-select:hover,
-.nav-right select:focus,
-#language-select:focus {
+.nav-right select:focus {
   border-color: #0066cc;
   background-color: #277ed9;
   color: #fff;
