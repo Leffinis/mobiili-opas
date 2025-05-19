@@ -49,6 +49,7 @@ const BurgerMenu = () => {
           <li><Link to="/yhteystiedot" onClick={() => setActive(false)}>{t.yhteystiedot}</Link></li>
           <li><Link to="/yrityksille" onClick={() => setActive(false)}>{t.yrityksille}</Link></li>
           <li><Link to="/yhteistyokumppanit" onClick={() => setActive(false)}>{t.yhteistyökumppanit}</Link></li>
+          <li><Link to="/omatsivut" onClick={() => setActive(false)}>{t.omatsivusi || "Omatsivut"}</Link></li>
         </ul>
       </div>
     </>

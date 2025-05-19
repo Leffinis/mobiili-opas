@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Arviointilaatikko</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .review-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    .review-box h2 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .star {
+      font-size: 2rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .star:hover,
+    .star:hover ~ .star {
+      color: #f0c330;
+    }
+
+    .star.selected,
+    .star.selected ~ .star {
+      color: #f0c330;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="review-box">
+    <h2>Arvioi paikka</h2>
+    <div class="stars" id="stars">
+      <span class="star" data-value="5">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="1">★</span>
+    </div>
+    <button onclick="submitRating()">Lähetä</button>
+  </div>
+
+  <script>
+    const stars = document.querySelectorAll('.star');
+    let rating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        rating = star.getAttribute('data-value');
+        stars.forEach(s => s.classList.remove('selected'));
+        star.classList.add('selected');
+        let next = star.nextElementSibling;
+        while (next) {
+          next.classList.add('selected');
+          next = next.nextElementSibling;
+        }
+      });
+    });
+
+    function submitRating() {
+      alert(`Arviosi: ${rating} / 5`);
+      // Tänne voisi lisätä tietojen lähetyksen palvelimelle
+    }
+  </script>
+</body>
+</html>

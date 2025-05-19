@@ -15,6 +15,7 @@ export const translations = {
       yhteystiedot: "Yhteystiedot",
       yrityksille: "Yrityksille",
       yhteistyökumppanit: "Yhteistyökumppanit",
+      omatsivusi: "Omat sivusi",
       //tietoa
       Tietoa_meista: "Tietoa meistä",
       tietoa_tervetuloa: "Tervetuloa Helsingin mobili matkaoppaaseen!",
@@ -79,6 +80,7 @@ export const translations = {
       yhteystiedot: "Contact us",
       yrityksille: "For businesses",
       yhteistyökumppanit: "Partners",
+      omatsivusi: "Your pages",
       //tietoa
       Tietoa_meista: "About us",
       tietoa_tervetuloa: "Welcome to Helsinki's mobile travel guide!",
@@ -143,6 +145,7 @@ export const translations = {
       yhteystiedot: "Kontakta oss",
       yrityksille: "För företag",
       yhteistyökumppanit: "Partners",
+      omatsivusi: "Dina sidor",
       //tietoa
       Tietoa_meista: "Om oss",
       tietoa_tervetuloa: "Välkommen till Helsingfors mobila reseguide!",
@@ -208,6 +211,7 @@ export const translations = {
       yhteystiedot: "Контакти",
       yrityksille: "Для бізнесу",
       yhteistyökumppanit: "Партнери",
+      omatsivusi: "Ваші сторінки",
       //tietoa
       Tietoa_meista: "Про нас",
       tietoa_tervetuloa: "Ласкаво просимо до мобільного путівника Гельсінкі!",
@@ -271,6 +275,7 @@ export const translations = {
       yhteystiedot: "Контакты",
       yrityksille: "Для бизнеса",
       yhteistyökumppanit: "Партнеры",
+      omatsivusi: "Ваши страницы",
       //tietoa
       Tietoa_meista: "О нас",
       tietoa_tervetuloa: "Добро пожаловать в мобильный путеводитель по Хельсинки!",
