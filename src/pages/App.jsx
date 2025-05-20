@@ -66,7 +66,7 @@ function App() {
         </div>
       </nav>
 
-      {!["/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille", "/kirjaudu"].includes(location.pathname) && (
+      {!["/omatsivut","/LoginPage","/tietoa", "/yhteistyokumppanit", "/yhteystiedot", "/yrityksille", "/kirjaudu"].includes(location.pathname) && (
         <Header />
       )}
 

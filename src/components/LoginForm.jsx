@@ -22,7 +22,7 @@ const LoginForm = ({ onError }) => {
       }
       localStorage.setItem("token", data.token);
       alert("Kirjautuminen onnistui!");
-      navigate("/");
+      navigate("/omatsivut");
     } catch {
       onError("Verkkovirhe!");
     }
