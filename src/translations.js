@@ -275,7 +275,7 @@ export const translations = {
       yhteystiedot: "Контакты",
       yrityksille: "Для бизнеса",
       yhteistyökumppanit: "Партнеры",
-      omatsivusi: "Ваши страницы",
+      omatsivusi: "Профиль",
       //tietoa
       Tietoa_meista: "О нас",
       tietoa_tervetuloa: "Добро пожаловать в мобильный путеводитель по Хельсинки!",
