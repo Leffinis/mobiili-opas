@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LogoutButton from "../components/LogoutButton"; // путь поправь, если не совпадает
+import LogoutButton from "../components/LogoutButton";
 
 const Omasivut = () => {
   const [bookmarks, setBookmarks] = useState([]);
@@ -15,7 +15,7 @@ const Omasivut = () => {
       .then(res => res.json())
       .then(ids => {
         setBookmarks(ids);
-        // Получаем все места для отображения описаний
+        // Получаем все места для отображения описаний (лучше получать все категории)
         fetch("http://localhost:3000/places/sightseeing")
           .then(res => res.json())
           .then(data => {
@@ -35,7 +35,7 @@ const Omasivut = () => {
 
   if (!myPlaces.length) {
     return (
-      <div style={{ margin: "100px auto", textAlign: "center" }}>
+      <div style={{ margin: "80px auto", maxWidth: 700, position: "relative" }}>
         <LogoutButton />
         <h2>Ei suosikkeja</h2>
         <p>Lisää paikkoja suosikkeihin painamalla <b>tähtikuvaketta</b> paikankuvauksessa.</p>
@@ -44,9 +44,21 @@ const Omasivut = () => {
   }
 
   return (
-    <div style={{ margin: "100px auto", maxWidth: 700 }}>
+    <div
+      style={{
+        margin: "80px auto",
+        maxWidth: 700,
+        minHeight: 350,
+        position: "relative",
+        background: "#fff",
+        borderRadius: "16px",
+        boxShadow: "0 6px 28px rgba(0,0,0,0.07)",
+        padding: "38px 22px 30px 22px"
+      }}
+    >
+      {/* Кнопка logout справа сверху */}
       <LogoutButton />
-      <h2>Suosikkipaikkasi</h2>
+      <h2 style={{ textAlign: "center", marginTop: 0 }}>Suosikkipaikkasi</h2>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {myPlaces.map((place) => (
           <li key={place.id} style={{
@@ -61,7 +73,7 @@ const Omasivut = () => {
                 <strong style={{ fontSize: "1.15rem" }}>{place.name}</strong>
                 <p style={{ margin: "7px 0" }}>{place.description}</p>
               </div>
-              {/* Кнопка для удаления */}
+              {/* Тут можно добавить кнопку удаления из избранного */}
             </div>
           </li>
         ))}

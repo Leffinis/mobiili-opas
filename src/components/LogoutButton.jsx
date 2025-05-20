@@ -7,26 +7,13 @@ const LogoutButton = ({ afterLogout }) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     if (typeof afterLogout === "function") afterLogout();
-    navigate("/kirjaudu"); // или "/" если надо
+    navigate("/"); // ← теперь всегда на главную
   };
 
   return (
     <button
       onClick={handleLogout}
-      style={{
-        padding: "10px 22px",
-        background: "#e74c3c",
-        color: "#fff",
-        border: "none",
-        borderRadius: "8px",
-        fontWeight: "600",
-        fontSize: "1rem",
-        cursor: "pointer",
-        marginBottom: "24px",
-        marginLeft: "auto",
-        display: "block",
-        marginRight: "0"
-      }}
+      className="logout-btn"
     >
       Kirjaudu ulos
     </button>

@@ -470,4 +470,28 @@ main p {
 .bookmark-btn:hover {
     color: #ffb300 !important;
   }
+/* ==============================
+   logout button / uloskirjautumispainike
+   ============================== */
+.logout-btn {
+  margin-top: 70px;
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    padding: 10px 22px;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(231,76,60,0.09);
+    transition: background 0.15s;
+  }
+.logout-btn:hover {
+    background: #b7281b;
+  }
+  
   
