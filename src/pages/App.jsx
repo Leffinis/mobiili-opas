@@ -18,6 +18,7 @@ import Yhteistyokumppanit from "./Yhteistyokumppanit";
 import Yhteystiedot from "./Yhteystiedot";
 import Yrityksille from "./Yrityksille";
 import LoginPage from "./LoginPage";
+import Omatsivut from "./omatsivut";
 
 function App() {
   const [routeCoordinates, setRouteCoordinates] = useState([]);
@@ -107,6 +108,7 @@ function App() {
           <Route path="/yhteystiedot" element={<Yhteystiedot />} />
           <Route path="/yrityksille" element={<Yrityksille />} />
           <Route path="/kirjaudu" element={<LoginPage />} />
+          <Route path="/omatsivut" element={<Omatsivut />} />
         </Routes>
       </main>
 

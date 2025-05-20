@@ -461,3 +461,13 @@ main p {
   margin-bottom: 0.8rem;
   max-width: 700px;
 }
+/* ==============================
+   BOOKMARKS / KIRJANMERKIT
+   ============================== */
+.bookmark-btn {
+    transition: color 0.15s;
+  }
+.bookmark-btn:hover {
+    color: #ffb300 !important;
+  }
+  

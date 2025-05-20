@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
 
@@ -6,6 +7,15 @@ export default function LoginPage() {
   const [showRegister, setShowRegister] = useState(false);
   const [error, setError] = useState("");
   const [regMessage, setRegMessage] = useState("");
+  const navigate = useNavigate();
+
+  // Если пользователь залогинен — сразу на omatsivut
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/omatsivut");
+    }
+  }, [navigate]);
 
   // После успешной регистрации показываем логин и сообщение
   const handleRegisterSuccess = (msg) => {
@@ -14,25 +24,27 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="login-container">
+    <div
+      className="login-container"
+      style={{
+        minHeight: 430,
+        transition: "min-height 0.25s"
+      }}
+    >
       {!showRegister ? (
         <>
           <LoginForm onError={setError} />
-          {error && <div style={{ color: "red", marginBottom: 10 }}>{error}</div>}
-          {regMessage && <div style={{ color: "green", marginBottom: 10 }}>{regMessage}</div>}
+          {error && <div className="error-message">{error}</div>}
+          {regMessage && <div className="success-message">{regMessage}</div>}
           <div style={{ textAlign: "center", marginTop: 16 }}>
-            <span>Ei tiliä? </span>
+            <span>Ei tiliä?</span>
             <button
               type="button"
-              onClick={() => { setShowRegister(true); setError(""); setRegMessage(""); }}
-              style={{
-                background: "none",
-                color: "#117f23",
-                border: "none",
-                textDecoration: "underline",
-                cursor: "pointer",
-                fontWeight: 600,
-                fontSize: "1rem"
+              className="switch-link-btn"
+              onClick={() => {
+                setShowRegister(true);
+                setError("");
+                setRegMessage("");
               }}
             >
               Rekisteröidy tästä
@@ -45,20 +57,16 @@ export default function LoginPage() {
             onError={setError}
             onSuccess={handleRegisterSuccess}
           />
-          {error && <div style={{ color: "red", marginBottom: 10 }}>{error}</div>}
+          {error && <div className="error-message">{error}</div>}
           <div style={{ textAlign: "center", marginTop: 16 }}>
             <span>Onko jo tili?</span>
             <button
               type="button"
-              onClick={() => { setShowRegister(false); setError(""); setRegMessage(""); }}
-              style={{
-                background: "none",
-                color: "#0066cc",
-                border: "none",
-                textDecoration: "underline",
-                cursor: "pointer",
-                fontWeight: 600,
-                fontSize: "1rem"
+              className="switch-link-btn"
+              onClick={() => {
+                setShowRegister(false);
+                setError("");
+                setRegMessage("");
               }}
             >
               Kirjaudu sisään

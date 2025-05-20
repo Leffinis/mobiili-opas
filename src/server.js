@@ -164,6 +164,44 @@ app.post("/api/route", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+// Получить закладки пользователя
+app.get("/api/bookmarks", authenticateToken, (req, res) => {
+  db.all(
+    "SELECT place_id FROM bookmarks WHERE user_id = ?",
+    [req.user.id],
+    (err, rows) => {
+      if (err) return res.status(500).json({ error: err.message });
+      const ids = rows.map(r => r.place_id);
+      res.json(ids);
+    }
+  );
+});
+
+// Добавить закладку
+app.post("/api/bookmarks/:placeId", authenticateToken, (req, res) => {
+  const placeId = req.params.placeId;
+  db.run(
+    "INSERT OR IGNORE INTO bookmarks (user_id, place_id) VALUES (?, ?)",
+    [req.user.id, placeId],
+    function (err) {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json({ success: true });
+    }
+  );
+});
+
+// Удалить закладку
+app.delete("/api/bookmarks/:placeId", authenticateToken, (req, res) => {
+  const placeId = req.params.placeId;
+  db.run(
+    "DELETE FROM bookmarks WHERE user_id = ? AND place_id = ?",
+    [req.user.id, placeId],
+    function (err) {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json({ success: true });
+    }
+  );
+});
 
 app.listen(port, () => {
   console.log(`✅ Server running at http://localhost:${port}`);
