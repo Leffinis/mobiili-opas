@@ -517,9 +517,10 @@ main p {
   box-shadow: 0 6px 28px rgba(0,0,0,0.07);
   padding: 38px 22px 30px 22px;
   position: relative;
+  max-height: calc(100vh - 140px); 
+  overflow-y: auto;
 }
 
-/* Заголовок */
 .omasivut-container h2 {
   text-align: center;
   margin-top: 0;
@@ -528,7 +529,7 @@ main p {
   margin-bottom: 1rem;
 }
 
-/* Состояния без токена или загрузки */
+
 .omasivut-message {
   margin-top: 120px;
   text-align: center;
@@ -536,14 +537,20 @@ main p {
   color: #666;
 }
 
-/* Список закладок */
 .bookmark-list {
-  list-style: none;
-  padding: 0;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 8px; 
   margin: 0;
+  list-style: none;
 }
 
-/* Один элемент закладки */
+
+.bookmark-list li {
+  list-style: none;
+}
+
+
 .bookmark-item {
   padding: 18px;
   margin: 10px 0;
@@ -552,7 +559,7 @@ main p {
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-/* Шапка элемента: бейдж, название, кнопка удаления */
+
 .bookmark-header {
   display: flex;
   align-items: center;
@@ -560,20 +567,20 @@ main p {
   position: relative;
 }
 
-/* Название */
+
 .bookmark-title {
   font-size: 1.15rem;
   flex: 1;
 }
 
-/* Описание */
+
 .bookmark-desc {
   margin: 7px 0 0 0;
   color: #333;
   line-height: 1.4;
 }
 
-/* Кнопка × справа */
+
 .remove-btn {
   background: none;
   border: none;

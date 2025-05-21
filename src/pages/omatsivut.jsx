@@ -1,11 +1,13 @@
 // src/pages/Omasivut.jsx
 
-import React from "react";
+import React, { useContext } from "react";
 import { useUserBookmarks } from "../hooks/useUserBookmarks";
 import LogoutButton from "../components/LogoutButton";
 import CategoryBadge from "../components/CategoryBadge";
+import { LanguageContext } from "../components/LanguageContext";
 
 export default function Omasivut() {
+  const {t} = useContext(LanguageContext);
   const {
     bookmarks,      
     loading,        
@@ -22,7 +24,7 @@ export default function Omasivut() {
   if (!token) {
     return (
       <div className="omasivut-message">
-        Kirjaudu sisään nähdäksesi suosikit.
+         {t.kirjauduensi}
       </div>
     );
   }
@@ -64,9 +66,9 @@ export default function Omasivut() {
       <>
         <LogoutButton />
         <div className="omasivut-container">
-          <h2>Ei suosikkeja</h2>
+          <h2>{t.eisuosi}</h2>
           <p>
-            Lisää paikkoja suosikkeihin painamalla <b>tähtikuvaketta</b> paikankuvauksessa.
+          {t.painakuva}
           </p>
         </div>
       </>
@@ -78,7 +80,7 @@ export default function Omasivut() {
     <>
       <LogoutButton />
       <div className="omasivut-container">
-        <h2>Suosikkipaikkasi</h2>
+        <h2>{t.suosikkipaikkasi}</h2>
         <ul className="bookmark-list">
           {places.map(place => (
             <li key={place.id} className="bookmark-item">

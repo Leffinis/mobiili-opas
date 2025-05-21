@@ -73,6 +73,14 @@ export const translations = {
       salasana: "Salasana",
       kirjaudu: "Kirjaudu",
 
+      //omatsivut
+      kirjauduensi: "Kirjaudu sisään ensi",
+      eisuosi: "Ei suosikkeja",
+      painakuva: "Lisää paikkoja suosikkeihin painamalla kuvaketta paikankuvauksessa",
+      suosikkipaikkasi: "Suosikkipaikkasi",
+      //LogoutButton
+      kirjauduulos: "Kirjaudu ulos",
+
     },
     en: {
       //header
@@ -144,6 +152,18 @@ export const translations = {
       register: "Register here",
       jotili: "Already have an account?",
       kirjaudusisään: "Log in",
+      //LoginForm + RegisterForm
+      käyttäjätunnus: "Username",
+      salasana: "Password",
+      kirjaudu: "Log in",
+      //omatsivut
+      kirjauduensi: "Log in first",
+      eisuosi: "No favorites",
+      painakuva: "Add places to favorites by clicking the icon in the place description",
+      suosikkipaikkasi: "Your favorite places",
+      //LogoutButton
+      kirjauduulos: "Log out",
+
 
     },
     sv: {
@@ -216,6 +236,18 @@ export const translations = {
       register: "Registrera här",
       jotili: "Har du redan ett konto?",
       kirjaudusisään: "Logga in",
+      //LoginForm + RegisterForm
+      käyttäjätunnus: "Användarnamn",
+      salasana: "Lösenord",
+      kirjaudu: "Logga in",
+      //omatsivut
+      kirjauduensi: "Logga in först",
+      eisuosi: "Inga favoriter",
+      painakuva: "Lägg till platser i favoriter genom att klicka på ikonen i platsbeskrivningen",
+      suosikkipaikkasi: "Dina favoritplatser",
+      //LogoutButton
+      kirjauduulos: "Logga ut",
+
 
     },
     uk: {
@@ -287,6 +319,16 @@ export const translations = {
       register: "Зареєструватися тут",
       jotili: "Вже є обліковий запис?",
       kirjaudusisään: "Увійти",
+      //LoginForm + RegisterForm
+      käyttäjätunnus: "Ім'я користувача",
+      salasana: "Пароль",
+      kirjaudu: "Увійти",
+      //omatsivut
+      kirjauduensi: "Спочатку увійдіть",
+      eisuosi: "Немає улюблених",
+      painakuva: "Додайте місця до улюблених, натиснувши піктограму в описі місця",
+
+
     },
     ru: {
       //header
@@ -356,6 +398,17 @@ export const translations = {
       register: "Зарегистрироваться здесь",
       jotili: "Уже есть аккаунт?",
       kirjaudusisään: "Войти",
+      //LoginForm + RegisterForm
+      käyttäjätunnus: "Имя пользователя",
+      salasana: "Пароль",
+      kirjaudu: "Войти",
+      //omatsivut
+      kirjauduensi: "Сначала войдите",
+      eisuosi: "Нет избранных",
+      painakuva: "Добавьте места в избранное, нажав на иконку в описании места",
+      suosikkipaikkasi: "Ваши избранные места",
+      //LogoutButton
+      kirjauduulos: "Выйти",
       
     }
   };

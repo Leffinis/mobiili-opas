@@ -1,7 +1,11 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+// src/components/LogoutButton.jsx
 
-const LogoutButton = ({ afterLogout }) => {
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { LanguageContext } from "./LanguageContext";
+
+export default function LogoutButton({ afterLogout }) {
+  const { t } = useContext(LanguageContext);  // ← здесь вызов useContext
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -11,13 +15,8 @@ const LogoutButton = ({ afterLogout }) => {
   };
 
   return (
-    <button
-      onClick={handleLogout}
-      className="logout-btn"
-    >
-      Kirjaudu ulos
+    <button onClick={handleLogout} className="logout-btn">
+      {t.kirjauduulos}
     </button>
   );
-};
-
-export default LogoutButton;
+}

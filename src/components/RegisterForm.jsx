@@ -48,7 +48,7 @@ const RegisterForm = ({ onError, onSuccess }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="reg-password">Salasana</label>
+        <label htmlFor="reg-password">{t.salasana}</label>
         <input
           type="password"
           id="reg-password"
@@ -59,7 +59,7 @@ const RegisterForm = ({ onError, onSuccess }) => {
         />
       </div>
       <button type="submit" className="login-button" style={{ backgroundColor: "#117f23" }}>
-        Rekisteröidy
+        {t.register}
       </button>
     </form>
   );
