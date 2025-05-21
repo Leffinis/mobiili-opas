@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from "/src/components/LanguageContext";
 
 const Yrityksille = () => {
+  const { t } = useContext(LanguageContext);
   return (
     <div className="tietoa-page">
-      <h2>Yrityksille</h2>
-      <p>
-        Tahdotko lisätä yrityksesi näkyvyyttä sivuillamme?
-      </p>
+      <h2>{t.yrityksille_1}</h2>
+    {/*   <p>
+        {t.yrityksille_2}
+      </p> */}
       
-        <h1>Arvoisat paikalliset yrittäjät.</h1>
-        <p>Oletteko kiinnostuneita yhteistyöstä kanssamme?</p>
-        <p>Meidän mobiili matkaopas tarjoaa erinomaisen mahdollisuuden lisätä yrityksenne näkyvyyttä ja houkutella asiakkaita.</p>
-        <p>Tarjoamme mainospaikkoja ja yhteistyömahdollisuuksia, jotka auttavat teitä tavoittamaan uusia asiakkaita.</p>
-        <p>Jos olette kiinnostuneita, ottakaa yhteyttä ja keskustellaan lisää yhteistyömahdollisuuksista!</p>
+{/*         <h3>{t.yrityksille_3}</h3> */}
+        <p>{t.yrityksille_4}</p>
+        <p>{t.yrityksille_5}</p>
+        <p>{t.yrityksille_6}</p>
+        <p>{t.yrityksille_7}</p>
         <h4>geobrosinternational@gmail.com</h4>
-        <p>Ystävällisin terveisin: Aliaksei "Leffinis" Mitsiushyn & Tuomas "Kapa" Niemi</p>
+        <p style={{ textAlign: 'center' }}>{t.yrityksille_8}</p>
+
     
 
     </div>

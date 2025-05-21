@@ -1,0 +1,144 @@
+/* RouteDetails.css */
+
+/* --------------------------------------------------
+   CSS-переменные для цветов HSL и прозрачности
+-------------------------------------------------- */
+:root {
+  --color-bus:    #005bbb;
+  --color-ferry:  #007f7f;
+  --color-rail:   #9900cc;
+  --color-subway: #c91e00;
+  --color-tram:   #009944;
+  --color-walk:   #393e46;
+  --bg-opacity:   0.1;
+}
+
+/* --------------------------------------------------
+   Контейнер всей панели 
+-------------------------------------------------- */
+.route-details-panel {
+  max-width: 480px;
+  margin: 1rem auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #333;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------
+   Сводка маршрута
+-------------------------------------------------- */
+.route-details-panel .summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #f9f9f9;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.route-details-panel .summary div strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* --------------------------------------------------
+   Список сегментов маршрута
+-------------------------------------------------- */
+.legs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.leg-item + .leg-item {
+  border-top: 1px solid #eee;
+}
+
+/* --------------------------------------------------
+   Заголовок сегмента: иконка, название и время
+-------------------------------------------------- */
+.leg-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
+.leg-header .icon {
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+}
+
+.leg-header .route-name {
+  font-weight: 600;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.leg-header .leg-times {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* --------------------------------------------------
+   Блок остановок: откуда / куда 
+-------------------------------------------------- */
+/* заменяем на: */
+/* вместо flex */
+.leg-stops {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* две колонки по половине ширины */
+  column-gap: 1rem;                 /* промежуток между ними */
+  font-size: 0.875rem;
+  padding: 0 1rem 1rem;
+}
+
+.leg-stops .stop {
+  text-align: left;
+}
+
+.leg-stops .stop:nth-child(1) {
+  justify-self: start;
+}
+
+
+.leg-stops .stop:nth-child(2) {
+  justify-self: start;
+}
+
+
+.leg-stops .stop-label {
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+
+.leg-item.bus {
+  border-left: 4px solid var(--color-bus);
+  background: rgba(0,91,187,var(--bg-opacity));
+}
+.leg-item.ferry {
+  border-left: 4px solid var(--color-ferry);
+  background: rgba(0,127,127,var(--bg-opacity));
+}
+.leg-item.rail {
+  border-left: 4px solid var(--color-rail);
+  background: rgba(153,0,204,var(--bg-opacity));
+}
+.leg-item.subway {
+  border-left: 4px solid var(--color-subway);
+  background: rgba(242,101,34,var(--bg-opacity));
+}
+.leg-item.tram {
+  border-left: 4px solid var(--color-tram);
+  background: rgba(0,153,68,var(--bg-opacity));
+}
+.leg-item.walk {
+  border-left: 4px solid var(--color-walk);
+  background: rgba(57,62,70, calc(var(--bg-opacity)/2));
+}
