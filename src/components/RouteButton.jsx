@@ -6,7 +6,7 @@ const RouteButton = ({
   place,
   setRouteCoordinates,
   setRouteLegs,
-  onShowRoute,    // колбэк из PlaceDescription → App
+  onShowRoute, 
 }) => {
   const { t } = useContext(LanguageContext);
 
@@ -43,7 +43,7 @@ const RouteButton = ({
 
           setRouteCoordinates(legs.flatMap(l => l.geometry.coordinates));
           setRouteLegs(legs);
-          onShowRoute();    // включаем режим «скрывать все маркеры, кроме выбранного»
+          onShowRoute();    
         } catch (err) {
           console.error(err);
           alert(t.route_load_error);

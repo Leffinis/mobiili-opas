@@ -8,7 +8,7 @@ const LoginForm = ({ onError }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    onError(""); // Сброс ошибки сверху
+    onError(""); 
     try {
       const resp = await fetch("http://localhost:3000/api/login", {
         method: "POST",

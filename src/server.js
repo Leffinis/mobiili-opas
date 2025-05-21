@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 3000;
-const SECRET_KEY = "PasswordForDatabasesAccessTuomasLohAliakseiIdiotCykaPerkele"; // Поменяй на свою длинную строку!
+const SECRET_KEY = "PasswordForDatabasesAccessTuomasLohAliakseiIdiotCykaPerkele"; // 
 
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
@@ -21,7 +21,7 @@ app.use(express.json());
 const db = new sqlite3.Database(path.join(__dirname, "database.db"));
 
 
-// --- РЕГИСТРАЦИЯ пользователя (POST /api/register)
+// (POST /api/register) REGISTER
 app.post("/api/register", async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password)
@@ -37,7 +37,7 @@ app.post("/api/register", async (req, res) => {
   );
 });
 
-// --- ЛОГИН (POST /api/login)
+// LOGIN
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
   db.get(
@@ -50,7 +50,7 @@ app.post("/api/login", (req, res) => {
       if (!match)
         return res.status(401).json({ error: "Väärä käyttäjätunnus tai salasana" });
 
-      // Генерируем токен (JWT)
+      // Token luodaan ja lähetetään asiakkaalle
       const token = jwt.sign(
         { id: user.id, username: user.username },
         SECRET_KEY,
@@ -61,7 +61,7 @@ app.post("/api/login", (req, res) => {
   );
 });
 
-// --- Мидлвар для проверки токена (для защищённых маршрутов)
+// --- TÄMÄ FUNKTIO KÄYTETÄÄN SUOJATUILLE ENDPOINTEILLE
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
@@ -73,14 +73,14 @@ function authenticateToken(req, res, next) {
   });
 }
 
-// --- Пример защищённого эндпоинта (можно использовать для /omatsivut и т.п.)
+// --- PROFIILI (profile)
 app.get("/api/profile", authenticateToken, (req, res) => {
   res.json({ message: "Tervetuloa, " + req.user.username + "!", user: req.user });
 });
 
-// --- ТВОИ СТАРЫЕ ЭНДПОИНТЫ (places, route) остаются как были:
 
-// --- МЕСТА (places)
+
+// --- (places)
 app.get("/places/:category", (req, res) => {
   db.all(
     "SELECT * FROM places WHERE category = ?",
@@ -92,7 +92,7 @@ app.get("/places/:category", (req, res) => {
   );
 });
 
-// --- ПРОКСИ ДЛЯ МАРШРУТА (routing)
+// --- routing
 app.post("/api/route", async (req, res) => {
   try {
     const { fromLat, fromLng, toLat, toLng } = req.body;
@@ -164,7 +164,7 @@ app.post("/api/route", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-// Получить закладки пользователя
+// fetch places
 app.get("/api/bookmarks", authenticateToken, (req, res) => {
   db.all(
     "SELECT place_id FROM bookmarks WHERE user_id = ?",
@@ -177,7 +177,7 @@ app.get("/api/bookmarks", authenticateToken, (req, res) => {
   );
 });
 
-// Добавить закладку
+// Lisää uusi bookmark
 app.post("/api/bookmarks/:placeId", authenticateToken, (req, res) => {
   const placeId = req.params.placeId;
   db.run(
@@ -190,7 +190,7 @@ app.post("/api/bookmarks/:placeId", authenticateToken, (req, res) => {
   );
 });
 
-// Удалить закладку
+// poista bookmark
 app.delete("/api/bookmarks/:placeId", authenticateToken, (req, res) => {
   const placeId = req.params.placeId;
   db.run(

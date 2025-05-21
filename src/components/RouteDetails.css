@@ -99,7 +99,6 @@
   padding: 0 1rem 1rem;
 }
 
-/* текст всегда по левому краю внутри своей колонки */
 .leg-stops .stop {
   text-align: left;
 }

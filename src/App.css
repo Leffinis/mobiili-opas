@@ -470,9 +470,10 @@ main p {
 .bookmark-btn:hover {
     color: #ffb300 !important;
   }
-/* ==============================
-   logout button / uloskirjautumispainike
+  /* ==============================
+   OMASIVUT
    ============================== */
+/* logout button / uloskirjautumispainike */
 .logout-btn {
   margin-top: 70px;
     position: absolute;
@@ -494,4 +495,96 @@ main p {
     background: #b7281b;
   }
   
-  
+  /* src/components/CategoryBadge.css */
+
+.category-badge {
+  display: inline-block;
+  background-color: #d6eaff;
+  color: #0066cc;
+  border-radius: 7px;
+  padding: 2px 9px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-right: 8px;
+}
+
+/* Kaikki sivulla */
+.omasivut-container {
+  margin: 100px auto;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.07);
+  padding: 38px 22px 30px 22px;
+  position: relative;
+}
+
+/* Заголовок */
+.omasivut-container h2 {
+  text-align: center;
+  margin-top: 0;
+  color: #0066cc;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Состояния без токена или загрузки */
+.omasivut-message {
+  margin-top: 120px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Список закладок */
+.bookmark-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Один элемент закладки */
+.bookmark-item {
+  padding: 18px;
+  margin: 10px 0;
+  background: #f2f8fc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Шапка элемента: бейдж, название, кнопка удаления */
+.bookmark-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+/* Название */
+.bookmark-title {
+  font-size: 1.15rem;
+  flex: 1;
+}
+
+/* Описание */
+.bookmark-desc {
+  margin: 7px 0 0 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Кнопка × справа */
+.remove-btn {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 3rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  margin-left: 8px;
+  transition: color 0.2s;
+}
+.remove-btn:hover {
+  color: #b7281b;
+}

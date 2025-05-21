@@ -9,7 +9,7 @@ export default function LoginPage() {
   const [regMessage, setRegMessage] = useState("");
   const navigate = useNavigate();
 
-  // Если пользователь залогинен — сразу на omatsivut
+  // menemme suoraan omasivut sivulle jos token on olemassa
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -17,7 +17,7 @@ export default function LoginPage() {
     }
   }, [navigate]);
 
-  // После успешной регистрации показываем логин и сообщение
+  // rekisteröinnin onnistumisen jälkeen suljemme rekisteröintilomakkeen ja näytämme viestin
   const handleRegisterSuccess = (msg) => {
     setShowRegister(false);
     setRegMessage(msg);

@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useCallback } from "react";
 
-export function useUserBookmarks(selectedPlaceId) {
+export function useUserBookmarks(selectedPlaceId = null) {
   const [bookmarks, setBookmarks] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Получить все закладки пользователя с сервера
+// Ottaa talteen bookmarkit
   const fetchBookmarks = useCallback(() => {
     const token = localStorage.getItem("token");
     if (!token) { setBookmarks([]); setLoading(false); return; }
@@ -21,7 +21,7 @@ export function useUserBookmarks(selectedPlaceId) {
       });
   }, []);
 
-  // Добавить в закладки
+  // Lisää uusi bookmark
   const addBookmark = useCallback((placeId) => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -31,7 +31,7 @@ export function useUserBookmarks(selectedPlaceId) {
     }).then(fetchBookmarks);
   }, [fetchBookmarks]);
 
-  // Удалить из закладок
+  // Poistaa bookmarkin
   const removeBookmark = useCallback((placeId) => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -41,12 +41,12 @@ export function useUserBookmarks(selectedPlaceId) {
     }).then(fetchBookmarks);
   }, [fetchBookmarks]);
 
-  // Подгружаем закладки на монтировании и при смене selectedPlaceId
+  // Hakee bookmarkit kun komponentti ladataan
   useEffect(() => {
     fetchBookmarks();
   }, [selectedPlaceId, fetchBookmarks]);
 
-  // Проверить, добавлен ли placeId в закладки
+  // Hakee bookmarkit kun token muuttuu
   const isBookmarked = useCallback((placeId) => bookmarks.includes(placeId), [bookmarks]);
 
   return {

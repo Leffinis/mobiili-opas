@@ -1,85 +1,103 @@
-import React, { useState, useEffect } from "react";
+// src/pages/Omasivut.jsx
+
+import React from "react";
+import { useUserBookmarks } from "../hooks/useUserBookmarks";
 import LogoutButton from "../components/LogoutButton";
+import CategoryBadge from "../components/CategoryBadge";
 
-const Omasivut = () => {
-  const [bookmarks, setBookmarks] = useState([]);
-  const [places, setPlaces] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function Omasivut() {
+  const {
+    bookmarks,      
+    loading,        
+    removeBookmark, // fn(id) → DELETE /api/bookmarks/id 
+  } = useUserBookmarks();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) return setLoading(false);
-    fetch("http://localhost:3000/api/bookmarks", {
-      headers: { Authorization: "Bearer " + token }
-    })
-      .then(res => res.json())
-      .then(ids => {
-        setBookmarks(ids);
-        // Получаем все места для отображения описаний (лучше получать все категории)
-        fetch("http://localhost:3000/places/sightseeing")
-          .then(res => res.json())
-          .then(data => {
-            setPlaces(data);
-            setLoading(false);
-          });
-      });
-  }, []);
 
-  const myPlaces = places.filter((p) => bookmarks.includes(p.id));
+  const [places, setPlaces] = React.useState([]);
+  const [placesLoading, setPlacesLoading] = React.useState(true);
 
-  if (!localStorage.getItem("token")) {
-    return <div style={{marginTop:100, textAlign:"center"}}>Kirjaudu sisään nähdäksesi suosikit.</div>;
-  }
+  const token = localStorage.getItem("token");
 
-  if (loading) return <div style={{marginTop:100, textAlign:"center"}}>Ladataan...</div>;
 
-  if (!myPlaces.length) {
+  if (!token) {
     return (
-      <div style={{ margin: "80px auto", maxWidth: 700, position: "relative" }}>
-        <LogoutButton />
-        <h2>Ei suosikkeja</h2>
-        <p>Lisää paikkoja suosikkeihin painamalla <b>tähtikuvaketta</b> paikankuvauksessa.</p>
+      <div className="omasivut-message">
+        Kirjaudu sisään nähdäksesi suosikit.
       </div>
     );
   }
 
-  return (
-    <div
-      style={{
-        margin: "80px auto",
-        maxWidth: 700,
-        minHeight: 350,
-        position: "relative",
-        background: "#fff",
-        borderRadius: "16px",
-        boxShadow: "0 6px 28px rgba(0,0,0,0.07)",
-        padding: "38px 22px 30px 22px"
-      }}
-    >
-      {/* Кнопка logout справа сверху */}
-      <LogoutButton />
-      <h2 style={{ textAlign: "center", marginTop: 0 }}>Suosikkipaikkasi</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        {myPlaces.map((place) => (
-          <li key={place.id} style={{
-            padding: "18px",
-            margin: "10px 0",
-            background: "#f2f8fc",
-            borderRadius: "10px",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.06)"
-          }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              <div>
-                <strong style={{ fontSize: "1.15rem" }}>{place.name}</strong>
-                <p style={{ margin: "7px 0" }}>{place.description}</p>
-              </div>
-              {/* Тут можно добавить кнопку удаления из избранного */}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
 
-export default Omasivut;
+  React.useEffect(() => {
+    if (loading) return;
+    setPlacesLoading(true);
+
+    Promise.all([
+      fetch("http://localhost:3000/places/sightseeing").then(r => r.json()),
+      fetch("http://localhost:3000/places/restaurants").then(r => r.json()),
+      fetch("http://localhost:3000/places/parks").then(r => r.json()),
+    ])
+      .then(([sights, rests, parks]) => {
+        const all = [
+          ...sights.map(p => ({ ...p, category: "sightseeing" })),
+          ...rests.map(p => ({ ...p, category: "restaurants" })),
+          ...parks.map(p => ({ ...p, category: "parks" })),
+        ];
+        setPlaces(all.filter(p => bookmarks.includes(p.id)));
+      })
+      .catch(console.error)
+      .finally(() => setPlacesLoading(false));
+  }, [loading, bookmarks]);
+
+
+  if (loading || placesLoading) {
+    return (
+      <div className="omasivut-message">
+        Ladataan…
+      </div>
+    );
+  }
+
+
+  if (places.length === 0) {
+    return (
+      <>
+        <LogoutButton />
+        <div className="omasivut-container">
+          <h2>Ei suosikkeja</h2>
+          <p>
+            Lisää paikkoja suosikkeihin painamalla <b>tähtikuvaketta</b> paikankuvauksessa.
+          </p>
+        </div>
+      </>
+    );
+  }
+
+
+  return (
+    <>
+      <LogoutButton />
+      <div className="omasivut-container">
+        <h2>Suosikkipaikkasi</h2>
+        <ul className="bookmark-list">
+          {places.map(place => (
+            <li key={place.id} className="bookmark-item">
+              <div className="bookmark-header">
+                <CategoryBadge category={place.category} />
+                <strong className="bookmark-title">{place.name}</strong>
+                <button
+                  className="remove-btn"
+                  title="Poista suosikeista"
+                  onClick={() => removeBookmark(place.id)}
+                >
+                  ×
+                </button>
+              </div>
+              <p className="bookmark-desc">{place.description}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}

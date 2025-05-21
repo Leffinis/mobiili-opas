@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// цвета для разных modes
+// värit 
 const modeColors = {
   BUS:    "#005bbb",
   FERRY:  "#007f7f",
@@ -19,14 +19,14 @@ const MapComponent = ({
   setSelectedPlace,
   routeCoordinates,
   routeLegs,
-  showRoute,    // булево-флаг
+  showRoute,    
 }) => {
   const mapRef      = useRef(null);
   const mapInstance = useRef(null);
   const markersRef  = useRef([]);
   const layersRef   = useRef(null);
 
-  // инициализация
+  // kartta luodaan vain kerran
   useEffect(() => {
     if (mapInstance.current || !mapRef.current) return;
     const map = L.map(mapRef.current).setView([60.1699, 24.9384], 13);
@@ -39,12 +39,12 @@ const MapComponent = ({
     mapInstance.current = map;
   }, []);
 
-  // маркеры мест
+  // kartta keskitetään valitun paikan ympärille
   useEffect(() => {
     const map = mapInstance.current;
     if (!map || !category) return;
 
-    // удаляем старые
+    // postamisen jälkeen kartta ei keskity
     markersRef.current.forEach(m => m.remove());
     markersRef.current = [];
 
@@ -54,7 +54,7 @@ const MapComponent = ({
         setPlaces(data);
 
         data.forEach(place => {
-          // если маршрут активен, скрываем все кроме выбранного
+          // jos route on näkyvissä, ei piirretä paikkoja
           if (showRoute && selectedPlace && place.id !== selectedPlace.id) {
             return;
           }
@@ -77,7 +77,7 @@ const MapComponent = ({
       .catch(err => console.error("Ошибка загрузки мест:", err));
   }, [category, selectedPlace, showRoute, setPlaces, setSelectedPlace]);
 
-  // отрисовка маршрута
+  // route
   useEffect(() => {
     const map = mapInstance.current;
     const group = layersRef.current;
@@ -95,7 +95,7 @@ const MapComponent = ({
 
         L.polyline(coords, opts).addTo(group);
 
-        // точка пересадки
+        // missä on reitti, siellä on myös marker
         if (i > 0 && routeLegs[i - 1].mode !== leg.mode && coords.length) {
           const [lat, lng] = coords[0];
           L.circleMarker([lat, lng], {

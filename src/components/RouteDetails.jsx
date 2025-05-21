@@ -18,7 +18,6 @@ const modeIcon = {
   SUBWAY: { icon: <MdTrain />,           cls: "subway" },
 };
 
-// Вспомогательная функция для форматирования времени без секунд
 const formatTime = (iso) =>
   new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
@@ -26,7 +25,6 @@ const RouteDetails = ({ legs }) => {
   const { t } = useContext(LanguageContext);
   if (!Array.isArray(legs) || legs.length === 0) return null;
 
-  // Переводы для типов транспорта
   const modeLabels = {
     WALK:   t.mode_walk,
     BUS:    t.mode_bus,
@@ -36,7 +34,6 @@ const RouteDetails = ({ legs }) => {
     SUBWAY: t.mode_subway,
   };
 
-  // Общая сводка
   const depTime = formatTime(legs[0].startTime);
   const arrTime = formatTime(legs[legs.length - 1].endTime);
   const durationMin = Math.round(

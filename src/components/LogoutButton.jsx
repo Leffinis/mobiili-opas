@@ -7,7 +7,7 @@ const LogoutButton = ({ afterLogout }) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     if (typeof afterLogout === "function") afterLogout();
-    navigate("/"); // ← теперь всегда на главную
+    navigate("/");
   };
 
   return (
