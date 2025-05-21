@@ -62,6 +62,16 @@ export const translations = {
       mode_subway:"Metro",
       //RouteButton
       route_button: "Reitti",
+      //LoginPage
+      tili:  "Ei tiliä?",
+      register: "Rekiseröidy tästä",
+      jotili: "Onko jo tili?", 
+      kirjaudusisään: "Kirjaudu sisään",
+
+      //LoginForm + RegisterForm
+      käyttäjätunnus: "Käyttäjätunnus",
+      salasana: "Salasana",
+      kirjaudu: "Kirjaudu",
 
     },
     en: {
@@ -128,6 +138,13 @@ export const translations = {
     
       //RouteButton
       route_button: "Route",
+
+      //LoginPage
+      tili:  "No account?",
+      register: "Register here",
+      jotili: "Already have an account?",
+      kirjaudusisään: "Log in",
+
     },
     sv: {
       //header
@@ -194,6 +211,12 @@ export const translations = {
       //RouteButton
       route_button: "Rutt",
 
+      //LoginPage
+      tili:  "Ingen konto?",
+      register: "Registrera här",
+      jotili: "Har du redan ett konto?",
+      kirjaudusisään: "Logga in",
+
     },
     uk: {
       //header
@@ -258,6 +281,12 @@ export const translations = {
       mode_subway:"Метро",
       //RouteButton
       route_button: "Маршрут",
+
+      //LoginPage
+      tili:  "Немає облікового запису?",
+      register: "Зареєструватися тут",
+      jotili: "Вже є обліковий запис?",
+      kirjaudusisään: "Увійти",
     },
     ru: {
       //header
@@ -322,6 +351,11 @@ export const translations = {
       mode_subway:"Метро",
       //RouteButton
       route_button: "Маршрут",
+      //LoginPage
+      tili:  "Нет аккаунта?",
+      register: "Зарегистрироваться здесь",
+      jotili: "Уже есть аккаунт?",
+      kirjaudusisään: "Войти",
       
     }
   };

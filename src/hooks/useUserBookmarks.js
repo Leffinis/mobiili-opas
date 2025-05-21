@@ -1,59 +1,68 @@
-// src/hooks/useUserBookmarks.js
 
 import { useState, useEffect, useCallback } from "react";
 
-export function useUserBookmarks(selectedPlaceId = null) {
+export function useUserBookmarks() {
   const [bookmarks, setBookmarks] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading]     = useState(true);
 
-// Ottaa talteen bookmarkit
-  const fetchBookmarks = useCallback(() => {
+
+  const fetchBookmarks = useCallback(async () => {
     const token = localStorage.getItem("token");
-    if (!token) { setBookmarks([]); setLoading(false); return; }
-    setLoading(true);
-    fetch("http://localhost:3000/api/bookmarks", {
-      headers: { Authorization: "Bearer " + token }
-    })
-      .then(res => res.json())
-      .then(data => {
-        setBookmarks(data || []);
-        setLoading(false);
+    if (!token) {
+      setBookmarks([]);
+      setLoading(false);
+      return;
+    }
+    try {
+      const res = await fetch("http://localhost:3000/api/bookmarks", {
+        headers: { Authorization: "Bearer " + token }
       });
+      const data = await res.json();
+      setBookmarks(data || []);
+    } catch (err) {
+      console.error("Failed to fetch bookmarks:", err);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  // Lisää uusi bookmark
-  const addBookmark = useCallback((placeId) => {
-    const token = localStorage.getItem("token");
-    if (!token) return;
-    fetch("http://localhost:3000/api/bookmarks/" + placeId, {
-      method: "POST",
-      headers: { Authorization: "Bearer " + token }
-    }).then(fetchBookmarks);
-  }, [fetchBookmarks]);
-
-  // Poistaa bookmarkin
-  const removeBookmark = useCallback((placeId) => {
-    const token = localStorage.getItem("token");
-    if (!token) return;
-    fetch("http://localhost:3000/api/bookmarks/" + placeId, {
-      method: "DELETE",
-      headers: { Authorization: "Bearer " + token }
-    }).then(fetchBookmarks);
-  }, [fetchBookmarks]);
-
-  // Hakee bookmarkit kun komponentti ladataan
   useEffect(() => {
     fetchBookmarks();
-  }, [selectedPlaceId, fetchBookmarks]);
+  }, [fetchBookmarks]);
 
-  // Hakee bookmarkit kun token muuttuu
-  const isBookmarked = useCallback((placeId) => bookmarks.includes(placeId), [bookmarks]);
+  
+  const addBookmark = useCallback(async (placeId) => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+   
+    setBookmarks(prev => [...prev, placeId]);
+   
+    try {
+      await fetch(`http://localhost:3000/api/bookmarks/${placeId}`, {
+        method: "POST",
+        headers: { Authorization: "Bearer " + token }
+      });
+    } catch (err) {
+      console.error("Failed to add bookmark:", err);
+      
+    }
+  }, []);
 
-  return {
-    bookmarks,
-    loading,
-    isBookmarked,
-    addBookmark,
-    removeBookmark
-  };
+  
+  const removeBookmark = useCallback(async (placeId) => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    setBookmarks(prev => prev.filter(id => id !== placeId));
+    try {
+      await fetch(`http://localhost:3000/api/bookmarks/${placeId}`, {
+        method: "DELETE",
+        headers: { Authorization: "Bearer " + token }
+      });
+    } catch (err) {
+      console.error("Failed to remove bookmark:", err);
+   
+    }
+  }, []);
+
+  return { bookmarks, loading, addBookmark, removeBookmark };
 }

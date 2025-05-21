@@ -1,3 +1,5 @@
+// src/components/PlaceDescription.jsx
+
 import React, { useContext } from "react";
 import { LanguageContext } from "./LanguageContext";
 import { MdBookmark, MdBookmarkBorder } from "react-icons/md";
@@ -13,12 +15,13 @@ const PlaceDescription = ({
   onShowRoute,
 }) => {
   const { t } = useContext(LanguageContext);
+  // hook
   const {
-    isBookmarked,
+    bookmarks,
     addBookmark,
     removeBookmark,
     loading: bookmarksLoading
-  } = useUserBookmarks(place?.id);
+  } = useUserBookmarks();
 
   if (!place) {
     return (
@@ -29,22 +32,26 @@ const PlaceDescription = ({
     );
   }
 
-  const bookmarked = isBookmarked(place.id);
+  // onko bookmarkattu?
+  const bookmarked = bookmarks.includes(place.id);
 
   return (
     <div className="place-description">
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+      <div className="place-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
         <h2>{place.name}</h2>
         <button
           className="bookmark-btn"
           disabled={bookmarksLoading}
           title={bookmarked ? t.remove_bookmark : t.add_bookmark}
-          onClick={() => bookmarked ? removeBookmark(place.id) : addBookmark(place.id)}
+          onClick={() => {
+            if (bookmarked) removeBookmark(place.id);
+            else addBookmark(place.id);
+          }}
           style={{
             background: "none",
             border: "none",
             cursor: "pointer",
-            fontSize: "2rem",
+            fontSize: "1.8rem",
             color: bookmarked ? "#0066cc" : "#bbb",
             marginLeft: 10
           }}

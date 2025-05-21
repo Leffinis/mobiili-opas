@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { LanguageContext } from "./LanguageContext";
+
 
 const RegisterForm = ({ onError, onSuccess }) => {
+  const { t } = useContext(LanguageContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,12 +31,13 @@ const RegisterForm = ({ onError, onSuccess }) => {
       onError("Verkkovirhe!");
     }
   };
+  
 
   return (
     <form onSubmit={handleRegister} className="login-form" style={{ marginTop: 30 }}>
-      <h2 className="login-title">Rekisteröidy</h2>
+      <h2 className="login-title">{t.register}</h2>
       <div className="form-group">
-        <label htmlFor="reg-username">Käyttäjätunnus</label>
+        <label htmlFor="reg-username">{t.käyttäjätunnus}</label>
         <input
           type="text"
           id="reg-username"

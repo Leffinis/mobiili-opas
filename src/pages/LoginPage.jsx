@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
+import { LanguageContext } from "../components/LanguageContext";
 
 export default function LoginPage() {
   const [showRegister, setShowRegister] = useState(false);
@@ -16,6 +17,7 @@ export default function LoginPage() {
       navigate("/omatsivut");
     }
   }, [navigate]);
+  const { t } = useContext(LanguageContext);
 
   // rekisteröinnin onnistumisen jälkeen suljemme rekisteröintilomakkeen ja näytämme viestin
   const handleRegisterSuccess = (msg) => {
@@ -37,7 +39,7 @@ export default function LoginPage() {
           {error && <div className="error-message">{error}</div>}
           {regMessage && <div className="success-message">{regMessage}</div>}
           <div style={{ textAlign: "center", marginTop: 16 }}>
-            <span>Ei tiliä?</span>
+            <span>{t.tili}</span>
             <button
               type="button"
               className="switch-link-btn"
@@ -47,7 +49,7 @@ export default function LoginPage() {
                 setRegMessage("");
               }}
             >
-              Rekisteröidy tästä
+              {t.register}
             </button>
           </div>
         </>
@@ -59,7 +61,7 @@ export default function LoginPage() {
           />
           {error && <div className="error-message">{error}</div>}
           <div style={{ textAlign: "center", marginTop: 16 }}>
-            <span>Onko jo tili?</span>
+            <span>{t.jotili}</span>
             <button
               type="button"
               className="switch-link-btn"
@@ -69,7 +71,7 @@ export default function LoginPage() {
                 setRegMessage("");
               }}
             >
-              Kirjaudu sisään
+              {t.kirjaudusisään}
             </button>
           </div>
         </>
